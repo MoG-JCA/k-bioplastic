@@ -179,7 +179,7 @@ export default function Technology() {
           <div className="mt-12 bg-gradient-to-r from-green-600 to-blue-600 p-8 rounded-xl text-white text-center">
             <h3 className="text-2xl font-bold mb-4">국내 최초 상온 토양 생분해 인증 (EL 724)</h3>
             <p className="text-lg">
-              K-BIOPLASTIC의 BADP는 58℃ 퇴비화 시설이 아닌,
+              EcoBio의 BADP는 58℃ 퇴비화 시설이 아닌,
               <strong className="underline">일반 토양 환경(15-35℃)</strong>에서 생분해되는
               국내 최초 인증 제품입니다.
             </p>

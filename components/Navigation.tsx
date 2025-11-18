@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Navigation() {
@@ -13,7 +14,14 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-green-700">K-BIOPLASTIC</span>
+              <Image
+                src="/ecobio_ci.png"
+                alt="EcoBio"
+                width={150}
+                height={40}
+                priority
+                className="h-10 w-auto"
+              />
             </Link>
           </div>
 

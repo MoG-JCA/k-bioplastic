@@ -126,7 +126,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-1">이메일</h3>
-                <p className="text-gray-600">info@k-bioplastic.com</p>
+                <p className="text-gray-600">info@ecobio.co.kr</p>
               </div>
             </div>
 
@@ -138,7 +138,8 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-1">전화</h3>
-                <p className="text-gray-600">02-1234-5678</p>
+                <p className="text-gray-600">TEL: 031-557-9153</p>
+                <p className="text-gray-600">FAX: 070-8153-9153</p>
               </div>
             </div>
 

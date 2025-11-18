@@ -104,7 +104,7 @@ export default function Cases() {
       <section className="bg-gradient-to-br from-green-700 to-blue-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-bold mb-6">적용사례</h1>
-          <p className="text-2xl">글로벌 기업들이 선택한 K-BIOPLASTIC</p>
+          <p className="text-2xl">글로벌 기업들이 선택한 EcoBio</p>
         </div>
       </section>
 
@@ -114,7 +114,7 @@ export default function Cases() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">검증된 성과</h2>
             <p className="text-xl text-gray-600">
-              국내외 유수 기업들이 K-BIOPLASTIC 솔루션으로 ESG 목표를 달성하고 있습니다
+              국내외 유수 기업들이 EcoBio 솔루션으로 ESG 목표를 달성하고 있습니다
             </p>
           </div>
 
@@ -312,7 +312,7 @@ export default function Cases() {
             귀사도 성공 사례의 주인공이 되세요
           </h2>
           <p className="text-xl mb-8">
-            K-BIOPLASTIC 솔루션으로 ESG 경영과 비용 절감을 동시에 실현하세요
+            EcoBio 솔루션으로 ESG 경영과 비용 절감을 동시에 실현하세요
           </p>
           <Link
             href="/contact"

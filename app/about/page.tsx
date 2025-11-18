@@ -17,7 +17,7 @@ export default function About() {
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-8">인사말</h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              안녕하십니까. K-BIOPLASTIC 대표이사입니다.
+              안녕하십니까. (주)에코바이오 대표이사입니다.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
               우리는 <strong className="text-green-700">진짜 생분해 기술</strong>로 지구를 보호하고,
@@ -103,7 +103,7 @@ export default function About() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-3xl font-bold mb-4">4세대: K-BIOPLASTIC 솔루션</h3>
+              <h3 className="text-3xl font-bold mb-4">4세대: EcoBio 솔루션</h3>
               <div className="grid md:grid-cols-2 gap-4 text-left max-w-3xl mx-auto mt-8">
                 <div className="flex items-start">
                   <span className="text-green-300 mr-2">✓</span>
