@@ -1,300 +1,173 @@
 import Link from 'next/link';
+import { Section } from '@/components/ui/Section';
+import { CostCalculator } from '@/components/CostCalculator';
+import { FAQSection } from '@/components/FAQSection';
 
-export default function MIAOSolution() {
+export default function MIAO() {
   const advantages = [
-    {
-      title: '기존 설비 사용',
-      description: '생산 라인, 금형, 압출기 등 기존 설비 변경 불필요',
-      icon: '🏭',
-    },
-    {
-      title: '1% 이하 첨가',
-      description: '극소량 첨가만으로 생분해 효과 구현',
-      icon: '💧',
-    },
-    {
-      title: '100% 재활용',
-      description: '분해 전까지 일반 플라스틱처럼 재활용 가능',
-      icon: '♻️',
-    },
-    {
-      title: '원가 부담 최소',
-      description: 'PLA/PBAT 대비 70% 이상 원가 절감',
-      icon: '💰',
-    },
-    {
-      title: '물성 유지',
-      description: '기존 플라스틱의 강도, 유연성, 투명도 100% 유지',
-      icon: '💪',
-    },
-    {
-      title: '다양한 수지 적용',
-      description: 'PE, PP, PET, PS 등 모든 범용 플라스틱에 적용',
-      icon: '🔬',
-    },
-    {
-      title: '상온 토양 분해',
-      description: '특수 시설 없이 일반 토양에서 6-12개월 내 분해',
-      icon: '🌱',
-    },
-    {
-      title: '미세 플라스틱 Zero',
-      description: '미생물에 의한 완전 분해, 미세 플라스틱 유발 없음',
-      icon: '✨',
-    },
-    {
-      title: '국제 인증',
-      description: 'ASTM D5511, OECD 207/208, SGS 인증 완료',
-      icon: '🏆',
-    },
-    {
-      title: '글로벌 검증',
-      description: 'Walmart, P&G, Disney 등 글로벌 기업 검증 완료',
-      icon: '🌍',
-    },
+    '기존 생산 설비 그대로 사용 가능 (별도 투자 불필요)',
+    '1~2% 소량 첨가만으로 생분해 성능 발현',
+    '생산 공정 및 사이클 타임에 영향 없음',
+    '모든 범용 플라스틱(PE, PP, PS, PET 등)에 적용 가능',
+    '가격 경쟁력 우수 (타 첨가제 대비)',
+    'FDA, RoHS 등 국제 안전 기준 충족',
+    '제품의 투명도 및 물성 저하 없음',
+    '유통 기한 조절 가능 (첨가량 조절)',
+    '재활용 공정에 영향 없음',
+    '브랜드 맞춤형 솔루션 제공',
   ];
 
-  const applications = [
-    { resin: 'PE (폴리에틸렌)', products: '쇼핑백, 쓰레기봉투, 포장재' },
-    { resin: 'PP (폴리프로필렌)', products: '식품 용기, 빨대, 섬유' },
-    { resin: 'PET (폴리에틸렌 테레프탈레이트)', products: '음료수병, 식품 용기' },
-    { resin: 'PS (폴리스티렌)', products: '일회용 컵, 포장 완충재' },
-    { resin: 'PVC (폴리염화비닐)', products: '건축 자재, 파이프' },
-    { resin: 'ABS', products: '전자제품 케이스, 장난감' },
-  ];
-
-  const productLine = [
+  const faqs = [
     {
-      name: 'MIAO K-1000',
-      description: 'PE/PP용 생분해 첨가제',
-      dosage: '0.5-1.0%',
-      applications: '쇼핑백, 쓰레기봉투, 포장재',
+      question: '기존 생산 설비를 변경해야 하나요?',
+      answer: '아니요, 전혀 필요하지 않습니다. MIAO는 마스터배치(Masterbatch) 형태로 제공되므로, 기존 원료와 함께 호퍼에 투입하기만 하면 됩니다. 금형이나 스크류 변경 없이 즉시 생산 가능합니다.'
     },
     {
-      name: 'MIAO K-2500',
-      description: 'PET용 생분해 첨가제',
-      dosage: '0.8-1.5%',
-      applications: '음료수병, 식품 용기',
+      question: '제품의 물성(강도, 투명도)이 변하나요?',
+      answer: 'MIAO는 1~2%의 소량만 첨가되므로 기존 플라스틱의 물성을 99% 이상 유지합니다. 인장 강도, 충격 강도, 투명도 등에서 일반 플라스틱과 차이가 없습니다.'
     },
     {
-      name: 'MIAO K-3000',
-      description: 'PS용 생분해 첨가제',
-      dosage: '0.5-1.2%',
-      applications: '일회용 컵, 포장재',
+      question: '분해 기간은 얼마나 걸리나요?',
+      answer: '제품의 두께와 환경 조건(토양 온도, 습도, 미생물 분포)에 따라 다르지만, 일반적으로 폐기 후 6개월에서 2년 사이에 완전 분해됩니다. 유통 기한 중에는 분해되지 않으므로 안심하고 사용할 수 있습니다.'
     },
     {
-      name: 'MIAO K-4000',
-      description: '범용 생분해 첨가제',
-      dosage: '1.0-2.0%',
-      applications: '모든 범용 플라스틱',
-    },
+      question: '재활용이 가능한가요?',
+      answer: '네, 가능합니다. MIAO가 첨가된 플라스틱은 분해가 시작되기 전까지는 일반 플라스틱과 동일하게 재활용(Recycle)할 수 있습니다. 폐기 시에만 생분해 메커니즘이 작동합니다.'
+    }
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-700 to-blue-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl font-bold mb-6">생분해 첨가제 MIAO</h1>
-            <p className="text-2xl mb-4">플라스틱 제조사를 위한 혁신 솔루션</p>
-            <p className="text-xl text-blue-100">
-              기존 설비 그대로, 1% 첨가만으로 생분해 플라스틱 생산
+      <section className="relative py-24 bg-[var(--primary)] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+        <div className="container-width relative z-10 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 tracking-tight">MIAO 솔루션</h1>
+          <p className="text-xl md:text-2xl text-green-50 max-w-2xl mx-auto leading-relaxed">
+            Microorganism Induced Artificial Oxidation<br />
+            <span className="font-semibold text-white">플라스틱 제조사를 위한 혁신적 첨가제</span>
+          </p>
+        </div>
+      </section>
+
+      {/* Introduction */}
+      <Section background="default">
+        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+              단 1%의 첨가로<br />
+              <span className="text-blue-600">친환경 기업으로 도약하세요</span>
+            </h2>
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              MIAO는 플라스틱 원료(Resin)에 소량 첨가하여 일반 플라스틱을 생분해 플라스틱으로 전환시켜주는 마스터배치(Masterbatch) 형태의 첨가제입니다.
+            </p>
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              제조 설비를 바꾸거나 원료를 전면 교체할 필요 없이, 기존 공정에 MIAO를 첨가하는 것만으로 ESG 경영을 실현할 수 있습니다.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-semibold text-sm">#설비투자Zero</span>
+              <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-semibold text-sm">#간편한적용</span>
+              <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-semibold text-sm">#비용절감</span>
+            </div>
+          </div>
+          <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-3xl border border-[var(--border)] flex items-center justify-center min-h-[300px] overflow-hidden relative">
+            <img
+              src="/images/miao-pellets.png"
+              alt="MIAO Additive Pellets"
+              className="absolute inset-0 w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
+            <div className="relative z-10 text-white font-bold text-xl drop-shadow-md">MIAO Masterbatch</div>
+          </div>
+        </div>
+      </Section>
+
+      {/* 10 Advantages */}
+      <Section background="muted">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">MIAO의 10대 장점</h2>
+          <p className="text-lg text-[var(--muted-foreground)]">
+            제조사를 위한 최적의 솔루션
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {advantages.map((adv, idx) => (
+            <div key={idx} className="flex items-start bg-white p-6 rounded-2xl shadow-sm border border-[var(--border)] hover:shadow-md transition-all">
+              <div className="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                {idx + 1}
+              </div>
+              <p className="text-lg text-gray-800 font-medium">{adv}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* How It Works (Mechanism) */}
+      <Section background="default">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">작동 메커니즘</h2>
+          <p className="text-lg text-[var(--muted-foreground)]">
+            MIAO가 플라스틱을 분해하는 과정
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto text-center">
+          <div className="p-8 rounded-3xl bg-gray-50 border border-[var(--border)]">
+            <div className="text-6xl mb-6">🦠</div>
+            <h3 className="text-xl font-bold mb-4">1. 미생물 유인</h3>
+            <p className="text-gray-600">
+              MIAO 성분이 토양 속 미생물을 플라스틱 표면으로 유인하여 바이오필름을 형성합니다.
+            </p>
+          </div>
+          <div className="p-8 rounded-3xl bg-gray-50 border border-[var(--border)]">
+            <div className="text-6xl mb-6">✂️</div>
+            <h3 className="text-xl font-bold mb-4">2. 분자 사슬 절단</h3>
+            <p className="text-gray-600">
+              미생물이 분비하는 효소가 플라스틱의 긴 탄소 사슬(Polymer)을 끊어냅니다.
+            </p>
+          </div>
+          <div className="p-8 rounded-3xl bg-gray-50 border border-[var(--border)]">
+            <div className="text-6xl mb-6">💧</div>
+            <h3 className="text-xl font-bold mb-4">3. 완전 분해</h3>
+            <p className="text-gray-600">
+              잘게 쪼개진 조각들은 미생물의 먹이가 되어 최종적으로 물과 이산화탄소로 분해됩니다.
             </p>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* 10 Advantages */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">MIAO 10대 장점</h2>
-          <p className="text-xl text-center text-gray-600 mb-12">
-            기존 플라스틱 제조 공정에 완벽하게 통합되는 솔루션
+      {/* Applicable Resins */}
+      <Section background="muted">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">적용 가능 수지</h2>
+          <p className="text-lg text-[var(--muted-foreground)]">
+            대부분의 범용 플라스틱에 적용 가능합니다
           </p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {advantages.map((advantage, idx) => (
-              <div key={idx} className="bg-blue-50 p-6 rounded-xl hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-3 text-center">{advantage.icon}</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2 text-center">{advantage.title}</h3>
-                <p className="text-sm text-gray-700 text-center">{advantage.description}</p>
-              </div>
-            ))}
-          </div>
         </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">작동 원리</h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <span className="text-2xl font-bold text-blue-700">1</span>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">첨가 (Blending)</h3>
-              <p className="text-gray-700">
-                기존 플라스틱 원료에 MIAO를 0.5-2% 첨가하여 혼합합니다.
-                별도의 설비 변경이나 공정 수정이 필요 없습니다.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <span className="text-2xl font-bold text-blue-700">2</span>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">사용 (Usage)</h3>
-              <p className="text-gray-700">
-                생산된 제품은 일반 플라스틱과 동일하게 사용됩니다.
-                물성, 강도, 투명도 등 모든 특성이 유지됩니다.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <span className="text-2xl font-bold text-blue-700">3</span>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">분해 (Degradation)</h3>
-              <p className="text-gray-700">
-                토양에 버려진 후 미생물이 MIAO를 매개로 플라스틱 분자를 분해합니다.
-                6-12개월 내 CO₂와 H₂O로 완전 분해됩니다.
-              </p>
-            </div>
-          </div>
+        <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
+          {['PE (LDPE, HDPE, LLDPE)', 'PP (Polypropylene)', 'PS (Polystyrene)', 'PET (Polyethylene Terephthalate)', 'PVC (Polyvinyl Chloride)', 'EVA', 'ABS', 'Rubber'].map((resin, i) => (
+            <span key={i} className="bg-white border border-gray-200 text-gray-800 px-8 py-4 rounded-2xl text-lg font-bold shadow-sm hover:shadow-md transition-all hover:scale-105 hover:border-blue-300 hover:text-blue-600 cursor-default">
+              {resin}
+            </span>
+          ))}
         </div>
-      </section>
+      </Section>
 
-      {/* Applications */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">적용 가능 수지</h2>
-          <p className="text-xl text-center text-gray-600 mb-12">
-            거의 모든 범용 플라스틱에 적용 가능합니다
-          </p>
+      {/* Cost Calculator */}
+      <CostCalculator />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {applications.map((app, idx) => (
-              <div key={idx} className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
-                <h3 className="text-xl font-bold text-blue-900 mb-3">{app.resin}</h3>
-                <p className="text-gray-700">
-                  <strong>적용 제품:</strong> {app.products}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Product Line */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">MIAO 제품 라인업</h2>
-          <p className="text-xl text-center text-gray-600 mb-12">
-            각 수지에 최적화된 MIAO 제품을 선택하세요
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {productLine.map((product, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-xl shadow-lg">
-                <h3 className="text-2xl font-bold text-blue-700 mb-3">{product.name}</h3>
-                <p className="text-lg text-gray-700 mb-4">{product.description}</p>
-                <div className="space-y-2 text-gray-700">
-                  <p><strong>권장 투입량:</strong> {product.dosage}</p>
-                  <p><strong>적용 제품:</strong> {product.applications}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Cost Comparison */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">원가 비교</h2>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl">
-              <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-                기존 PE 봉투 1kg 생산 시 원가 비교 (예시)
-              </h3>
-
-              <div className="space-y-4">
-                <div className="bg-white p-4 rounded-lg flex justify-between items-center">
-                  <span className="font-semibold">일반 PE</span>
-                  <span className="text-xl font-bold">₩2,000</span>
-                </div>
-                <div className="bg-white p-4 rounded-lg flex justify-between items-center">
-                  <span className="font-semibold">PE + MIAO (1% 첨가)</span>
-                  <span className="text-xl font-bold text-blue-700">₩2,200</span>
-                  <span className="text-sm text-gray-600">(+10%)</span>
-                </div>
-                <div className="bg-white p-4 rounded-lg flex justify-between items-center">
-                  <span className="font-semibold">PLA</span>
-                  <span className="text-xl font-bold text-red-600">₩5,000</span>
-                  <span className="text-sm text-red-600">(+150%)</span>
-                </div>
-              </div>
-
-              <div className="mt-8 p-6 bg-white rounded-lg">
-                <p className="text-center text-lg text-gray-700">
-                  <strong className="text-blue-700">MIAO 사용 시</strong> PLA/PBAT 대비{' '}
-                  <strong className="text-2xl text-blue-700">70% 이상 원가 절감</strong>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Target Customers */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">누구를 위한 제품인가요?</h2>
-          <p className="text-xl text-center text-gray-600 mb-12">
-            MIAO는 이런 고객사에 최적화되어 있습니다
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="text-4xl mb-4">🏭</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">플라스틱 제조업체</h3>
-              <p className="text-gray-700">
-                기존 설비를 유지하면서 생분해 플라스틱을 생산하고 싶은 제조사
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="text-4xl mb-4">🔬</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">R&D 부서</h3>
-              <p className="text-gray-700">
-                친환경 제품 개발을 고민하는 연구개발 팀
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="text-4xl mb-4">📦</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">포장재 업체</h3>
-              <p className="text-gray-700">
-                고객사 요구에 맞춰 친환경 포장재를 공급하고 싶은 업체
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* FAQ Section */}
+      <FAQSection items={faqs} background="default" />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-700 to-blue-900 text-white">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            MIAO 첨가제 샘플 및 기술 문의
+            MIAO 샘플 테스트를 신청하세요
           </h2>
           <p className="text-xl mb-8">
-            무료 샘플 제공 및 적용 테스트 지원<br />
-            기술 담당자가 직접 방문하여 컨설팅해드립니다
+            귀사의 제품에 바로 적용하여 테스트해볼 수 있습니다.
           </p>
           <Link
             href="/contact"

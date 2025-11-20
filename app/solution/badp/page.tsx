@@ -1,289 +1,229 @@
 import Link from 'next/link';
+import { Section } from '@/components/ui/Section';
+import { FAQSection } from '@/components/FAQSection';
 
-export default function BADPSolution() {
-  const products = [
+export default function BADP() {
+  const features = [
     {
-      name: '롤백 (Roll Bag)',
-      description: '대형마트, 편의점용 비닐봉투',
-      features: ['일반 롤백과 동일한 강도', '다양한 사이즈 제작 가능', 'EL 724 인증'],
+      title: '상온 토양 생분해',
+      description: '별도의 퇴비화 시설 없이 일반 토양(20~30℃)에서 미생물에 의해 100% 분해됩니다.',
+      icon: '🌱',
     },
     {
-      name: '위생백 (Garbage Bag)',
-      description: '가정용, 업소용 쓰레기봉투',
-      features: ['찢어짐 방지 강화', '악취 차단 기능', '대용량 제작 가능'],
+      title: '물성 유지',
+      description: '기존 플라스틱(PE, PP 등)과 동등한 물성을 유지하여 내구성과 사용성이 뛰어납니다.',
+      icon: '💪',
     },
     {
-      name: '위생장갑 (Disposable Gloves)',
-      description: '식품 조리, 의료용 일회용 장갑',
-      features: ['안전성 인증', '우수한 착용감', '다양한 두께 옵션'],
+      title: '가격 경쟁력',
+      description: 'PLA, PBAT 등 타 생분해 소재 대비 30% 이상 저렴하여 경제적입니다.',
+      icon: '💰',
     },
     {
-      name: '지퍼백 (Zipper Bag)',
-      description: '식품 보관용 밀폐 지퍼백',
-      features: ['완벽한 밀폐력', '냉동/냉장 사용 가능', '다양한 사이즈'],
-    },
-    {
-      name: '선도유지 기능성 지퍼백',
-      description: '신선도 연장 특수 코팅 지퍼백',
-      features: ['채소/과일 신선도 2배 연장', '에틸렌 가스 제거', '프리미엄 품질'],
+      title: '재활용 가능',
+      description: '분해되기 전까지는 일반 플라스틱처럼 재활용이 가능하여 순환 경제에 기여합니다.',
+      icon: '♻️',
     },
   ];
 
+  const products = [
+    {
+      name: '쇼핑백/비닐봉투',
+      desc: '마트, 편의점 등에서 사용되는 친환경 생분해 봉투',
+      image: '🛍️',
+    },
+    {
+      name: '식품 포장재',
+      desc: '신선 식품, 냉동 식품 등을 위한 안전한 포장',
+      image: '🍎',
+    },
+    {
+      name: '농업용 멀칭 필름',
+      desc: '수확 후 수거할 필요 없이 토양에 갈아엎는 필름',
+      image: '🚜',
+    },
+    {
+      name: '위생장갑/지퍼백',
+      desc: '가정에서 사용하는 일회용 주방 용품',
+      image: '🧤',
+    },
+  ];
+
+  const faqs = [
+    {
+      question: '일반 플라스틱과 어떻게 구분하나요?',
+      answer: '육안으로는 구분이 어렵지만, 제품에 표기된 EL 724 인증 마크를 통해 확인할 수 있습니다. 물성과 투명도는 일반 플라스틱과 동일합니다.'
+    },
+    {
+      question: '보관 중에 분해되지는 않나요?',
+      answer: '아니요. BADP 제품은 토양 속 미생물과 접촉해야만 분해가 시작됩니다. 일반적인 창고나 가정 환경에서는 분해되지 않으며, 유통기한 동안 물성이 유지됩니다.'
+    },
+    {
+      question: '음식물을 담아도 안전한가요?',
+      answer: '네, 안전합니다. FDA 식품 접촉 승인을 받은 안전한 원료를 사용하며, 환경 호르몬이나 유해 물질이 검출되지 않습니다.'
+    },
+    {
+      question: '분리 배출은 어떻게 하나요?',
+      answer: '일반 플라스틱과 동일하게 재활용(Recycle)으로 배출하시면 됩니다. 매립되더라도 자연 분해되므로 환경 오염을 일으키지 않습니다.'
+    }
+  ];
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-700 to-green-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl font-bold mb-6">생분해 완제품 BADP</h1>
-            <p className="text-2xl mb-4">유통/리테일 파트너를 위한 솔루션</p>
-            <p className="text-xl text-green-100">
-              일반 비닐과 동일한 물성, 상온 토양에서 100% 생분해
-            </p>
-          </div>
+      <section className="relative py-24 bg-[var(--primary)] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+        <div className="container-width relative z-10 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 tracking-tight">BADP 솔루션</h1>
+          <p className="text-xl md:text-2xl text-green-50 max-w-2xl mx-auto leading-relaxed">
+            Biodegradable Additive for Degradable Plastic<br />
+            <span className="font-semibold text-white">완벽한 생분해 완제품 솔루션</span>
+          </p>
         </div>
       </section>
+
+      {/* Introduction */}
+      <Section background="default">
+        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+              플라스틱의 편리함은 그대로,<br />
+              <span className="text-green-600">환경 부담은 Zero</span>
+            </h2>
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              BADP는 일반 플라스틱(PE, PP, PS 등)에 특수 미생물 효소 첨가제를 배합하여 만든 생분해 플라스틱 제품군입니다.
+            </p>
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              기존 생분해 플라스틱(PLA, PBAT)의 단점인 약한 물성, 높은 가격, 까다로운 분해 조건을 모두 해결한 혁신적인 솔루션입니다.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold text-sm">#상온생분해</span>
+              <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold text-sm">#가격경쟁력</span>
+              <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold text-sm">#고물성</span>
+            </div>
+          </div>
+          <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-3xl border border-[var(--border)] flex items-center justify-center min-h-[300px] overflow-hidden relative">
+            <img
+              src="/images/badp-bag.png"
+              alt="BADP Eco Shopping Bag"
+              className="absolute inset-0 w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-green-900/50 to-transparent"></div>
+            <div className="relative z-10 text-white font-bold text-xl drop-shadow-md">Eco-Friendly Shopping Bag</div>
+          </div>
+        </div>
+      </Section>
 
       {/* Key Features */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">BADP의 핵심 장점</h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-green-50 p-8 rounded-xl">
-              <div className="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">동일한 물성/강도</h3>
-              <p className="text-gray-700">
-                기존 플라스틱 비닐과 100% 동일한 내구성과 강도. 찢어짐 걱정 없음
-              </p>
-            </div>
-
-            <div className="bg-green-50 p-8 rounded-xl">
-              <div className="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">상온 토양 생분해</h3>
-              <p className="text-gray-700">
-                특수 시설 불필요. 일반 토양에서 6-12개월 내 100% 생분해 (EL 724 인증)
-              </p>
-            </div>
-
-            <div className="bg-green-50 p-8 rounded-xl">
-              <div className="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">100% 재활용 가능</h3>
-              <p className="text-gray-700">
-                분해되기 전까지는 일반 플라스틱처럼 100% 재활용 가능. 순환 경제 실현
-              </p>
-            </div>
-
-            <div className="bg-green-50 p-8 rounded-xl">
-              <div className="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">합리적인 가격</h3>
-              <p className="text-gray-700">
-                PLA/PBAT 대비 30-50% 저렴. 기존 플라스틱과 경쟁력 있는 가격
-              </p>
-            </div>
-
-            <div className="bg-green-50 p-8 rounded-xl">
-              <div className="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">국내외 인증</h3>
-              <p className="text-gray-700">
-                환경부 EL 724 (국내 최초), ASTM, OECD, SGS 등 국제 인증 완료
-              </p>
-            </div>
-
-            <div className="bg-green-50 p-8 rounded-xl">
-              <div className="bg-green-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">미세 플라스틱 Zero</h3>
-              <p className="text-gray-700">
-                미생물에 의한 완전 분해. 미세 플라스틱 유발 없음
-              </p>
-            </div>
-          </div>
+      <Section background="muted">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">핵심 장점</h2>
+          <p className="text-lg text-[var(--muted-foreground)]">
+            왜 BADP를 선택해야 할까요?
+          </p>
         </div>
-      </section>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {features.map((feature, idx) => (
+            <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-[var(--border)] hover:shadow-md transition-all hover:-translate-y-1">
+              <div className="text-5xl mb-6">{feature.icon}</div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">{feature.title}</h3>
+              <p className="text-gray-600 leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {/* Product Lineup */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">제품 라인업</h2>
-          <p className="text-xl text-center text-gray-600 mb-12">
-            다양한 용도에 맞는 BADP 완제품을 제공합니다
+      <Section background="default">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">제품 라인업</h2>
+          <p className="text-lg text-[var(--muted-foreground)]">
+            다양한 산업 분야에 적용 가능한 BADP 제품
           </p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <h3 className="text-2xl font-bold text-green-700 mb-3">{product.name}</h3>
-                <p className="text-gray-600 mb-4">{product.description}</p>
-                <ul className="space-y-2">
-                  {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-start text-gray-700">
-                      <span className="text-green-600 mr-2">•</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
         </div>
-      </section>
+
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {products.map((product, idx) => (
+            <div key={idx} className="flex items-start p-6 rounded-2xl border border-[var(--border)] bg-white hover:bg-green-50/30 transition-colors">
+              <div className="bg-green-100 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mr-6 flex-shrink-0">
+                {product.image}
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{product.name}</h3>
+                <p className="text-gray-600">{product.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {/* Comparison Table */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">타사 제품과 비교</h2>
-
+      <Section background="muted">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">비교 분석</h2>
+        </div>
+        <div className="max-w-5xl mx-auto overflow-hidden rounded-2xl border border-[var(--border)] shadow-sm bg-white">
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-gray-100">
-                  <th className="border border-gray-300 p-4 text-left">항목</th>
-                  <th className="border border-gray-300 p-4 text-center bg-green-100">
-                    <strong className="text-green-700">BADP (당사)</strong>
-                  </th>
-                  <th className="border border-gray-300 p-4 text-center">PLA/PBAT</th>
-                  <th className="border border-gray-300 p-4 text-center">산화분해</th>
-                  <th className="border border-gray-300 p-4 text-center">일반 플라스틱</th>
+                <tr className="bg-gray-900 text-white">
+                  <th className="p-4 text-left font-semibold">구분</th>
+                  <th className="p-4 text-center bg-[var(--primary)] font-bold border-b-4 border-green-800">BADP</th>
+                  <th className="p-4 text-center font-semibold">PLA / PBAT</th>
+                  <th className="p-4 text-center font-semibold">산화생분해</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-gray-300 p-4 font-semibold">생분해 조건</td>
-                  <td className="border border-gray-300 p-4 text-center bg-green-50">
-                    <span className="text-green-700 font-semibold">상온 토양</span>
-                  </td>
-                  <td className="border border-gray-300 p-4 text-center">58℃ 특수 시설</td>
-                  <td className="border border-gray-300 p-4 text-center">해당 없음</td>
-                  <td className="border border-gray-300 p-4 text-center">해당 없음</td>
+              <tbody className="text-gray-700">
+                <tr className="border-b border-gray-100">
+                  <td className="p-4 font-semibold">가격</td>
+                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">저렴함 (기존 대비 +10~20%)</td>
+                  <td className="p-4 text-center">매우 비쌈 (2~3배)</td>
+                  <td className="p-4 text-center">저렴함</td>
+                </tr>
+                <tr className="border-b border-gray-100">
+                  <td className="p-4 font-semibold">물성 (강도)</td>
+                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">우수 (기존과 동일)</td>
+                  <td className="p-4 text-center">약함 (잘 찢어짐)</td>
+                  <td className="p-4 text-center">우수</td>
+                </tr>
+                <tr className="border-b border-gray-100">
+                  <td className="p-4 font-semibold">분해 조건</td>
+                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">상온 토양 (일반 환경)</td>
+                  <td className="p-4 text-center">고온 (58℃ 이상) 퇴비화 시설</td>
+                  <td className="p-4 text-center">빛, 열 (자연 분해 안됨)</td>
+                </tr>
+                <tr className="border-b border-gray-100">
+                  <td className="p-4 font-semibold">미세 플라스틱</td>
+                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">없음 (완전 분해)</td>
+                  <td className="p-4 text-center">적음</td>
+                  <td className="p-4 text-center">발생 (조각화)</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 p-4 font-semibold">생분해 기간</td>
-                  <td className="border border-gray-300 p-4 text-center bg-green-50">
-                    <span className="text-green-700 font-semibold">6-12개월</span>
-                  </td>
-                  <td className="border border-gray-300 p-4 text-center">6개월 (특수 시설)</td>
-                  <td className="border border-gray-300 p-4 text-center">분해 안 됨</td>
-                  <td className="border border-gray-300 p-4 text-center">500년+</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 p-4 font-semibold">미세 플라스틱</td>
-                  <td className="border border-gray-300 p-4 text-center bg-green-50">
-                    <span className="text-green-700 font-semibold">Zero</span>
-                  </td>
-                  <td className="border border-gray-300 p-4 text-center">최소</td>
-                  <td className="border border-gray-300 p-4 text-center text-red-600">대량 발생</td>
-                  <td className="border border-gray-300 p-4 text-center text-red-600">대량 발생</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 p-4 font-semibold">물성/강도</td>
-                  <td className="border border-gray-300 p-4 text-center bg-green-50">
-                    <span className="text-green-700 font-semibold">우수</span>
-                  </td>
-                  <td className="border border-gray-300 p-4 text-center">약함</td>
-                  <td className="border border-gray-300 p-4 text-center">보통</td>
-                  <td className="border border-gray-300 p-4 text-center">우수</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 p-4 font-semibold">가격 경쟁력</td>
-                  <td className="border border-gray-300 p-4 text-center bg-green-50">
-                    <span className="text-green-700 font-semibold">합리적</span>
-                  </td>
-                  <td className="border border-gray-300 p-4 text-center">비쌈 (2-3배)</td>
-                  <td className="border border-gray-300 p-4 text-center">저렴</td>
-                  <td className="border border-gray-300 p-4 text-center">가장 저렴</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 p-4 font-semibold">재활용 가능</td>
-                  <td className="border border-gray-300 p-4 text-center bg-green-50">
-                    <span className="text-green-700 font-semibold">100%</span>
-                  </td>
-                  <td className="border border-gray-300 p-4 text-center">불가</td>
-                  <td className="border border-gray-300 p-4 text-center">가능</td>
-                  <td className="border border-gray-300 p-4 text-center">100%</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 p-4 font-semibold">인증</td>
-                  <td className="border border-gray-300 p-4 text-center bg-green-50">
-                    <span className="text-green-700 font-semibold">EL 724, ASTM</span>
-                  </td>
-                  <td className="border border-gray-300 p-4 text-center">ASTM D6400</td>
-                  <td className="border border-gray-300 p-4 text-center">없음</td>
-                  <td className="border border-gray-300 p-4 text-center">없음</td>
+                  <td className="p-4 font-semibold">재활용</td>
+                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">가능</td>
+                  <td className="p-4 text-center">불가능 (분리 배출 혼란)</td>
+                  <td className="p-4 text-center">가능</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Target Customers */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">누구를 위한 제품인가요?</h2>
-          <p className="text-xl text-center text-gray-600 mb-12">
-            BADP는 이런 고객사에 최적화되어 있습니다
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="text-4xl mb-4">🏪</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">대형마트/편의점</h3>
-              <p className="text-gray-700">
-                고객에게 제공하는 비닐봉투를 친환경으로 전환하고 싶은 유통업체
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="text-4xl mb-4">🏢</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">ESG 담당 기업</h3>
-              <p className="text-gray-700">
-                ESG 경영 목표를 달성하고, 탄소 배출을 줄이고 싶은 기업
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="text-4xl mb-4">🌱</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">친환경 브랜드</h3>
-              <p className="text-gray-700">
-                그린워싱 없이 진짜 친환경 제품을 제공하고 싶은 브랜드
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* FAQ Section */}
+      <FAQSection items={faqs} background="default" />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-green-700 to-green-900 text-white">
+      <section className="py-20 bg-gradient-to-r from-green-600 to-teal-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            BADP 완제품 구매 문의
+            BADP 제품 도입을 고민 중이신가요?
           </h2>
           <p className="text-xl mb-8">
-            제품 샘플, 견적, 납품 일정 등 궁금하신 사항을 문의해주세요
+            샘플 신청 및 견적 문의를 통해 직접 확인해보세요.
           </p>
           <Link
             href="/contact"

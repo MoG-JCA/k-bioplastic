@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Section } from '@/components/ui/Section';
 
 export default function Cases() {
   const badpCases = [
@@ -99,211 +100,197 @@ export default function Cases() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-700 to-blue-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl font-bold mb-6">적용사례</h1>
-          <p className="text-2xl">글로벌 기업들이 선택한 EcoBio</p>
+      <section className="relative py-24 bg-[var(--primary)] text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+        <div className="container-width relative z-10 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 tracking-tight">적용사례</h1>
+          <p className="text-xl md:text-2xl text-green-50 max-w-2xl mx-auto leading-relaxed">
+            글로벌 기업들이 선택한<br />
+            <span className="font-semibold text-white">EcoBio 솔루션</span>
+          </p>
         </div>
       </section>
 
       {/* Overview */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">검증된 성과</h2>
-            <p className="text-xl text-gray-600">
-              국내외 유수 기업들이 EcoBio 솔루션으로 ESG 목표를 달성하고 있습니다
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center p-6 bg-green-50 rounded-xl">
-              <div className="text-5xl font-bold text-green-700 mb-2">50+</div>
-              <p className="text-gray-700 text-lg">도입 기업</p>
-            </div>
-            <div className="text-center p-6 bg-blue-50 rounded-xl">
-              <div className="text-5xl font-bold text-blue-700 mb-2">20,000+</div>
-              <p className="text-gray-700 text-lg">연간 플라스틱 절감 (톤)</p>
-            </div>
-            <div className="text-center p-6 bg-purple-50 rounded-xl">
-              <div className="text-5xl font-bold text-purple-700 mb-2">15+</div>
-              <p className="text-gray-700 text-lg">국가</p>
-            </div>
-            <div className="text-center p-6 bg-orange-50 rounded-xl">
-              <div className="text-5xl font-bold text-orange-700 mb-2">95%</div>
-              <p className="text-gray-700 text-lg">고객 만족도</p>
-            </div>
-          </div>
+      <Section background="default">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">검증된 성과</h2>
+          <p className="text-lg text-[var(--muted-foreground)]">
+            국내외 유수 기업들이 EcoBio 솔루션으로 ESG 목표를 달성하고 있습니다
+          </p>
         </div>
-      </section>
+
+        <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto mb-12">
+          {[
+            { value: '50+', label: '도입 기업', color: 'text-green-600', bg: 'bg-green-50' },
+            { value: '20,000+', label: '연간 플라스틱 절감 (톤)', color: 'text-blue-600', bg: 'bg-blue-50' },
+            { value: '15+', label: '국가', color: 'text-purple-600', bg: 'bg-purple-50' },
+            { value: '95%', label: '고객 만족도', color: 'text-orange-600', bg: 'bg-orange-50' },
+          ].map((stat, i) => (
+            <div key={i} className={`text-center p-8 rounded-2xl ${stat.bg} border border-transparent hover:border-current transition-colors`}>
+              <div className={`text-4xl md:text-5xl font-bold ${stat.color} mb-3`}>{stat.value}</div>
+              <p className="text-gray-700 font-medium">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {/* BADP Cases */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">BADP 완제품 도입 사례</h2>
-            <p className="text-xl text-gray-600">
-              유통/리테일 파트너들의 성공 스토리
-            </p>
-          </div>
+      <Section background="muted">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">BADP 완제품 도입 사례</h2>
+          <p className="text-lg text-[var(--muted-foreground)]">
+            유통/리테일 파트너들의 성공 스토리
+          </p>
+        </div>
 
-          <div className="space-y-8">
-            {badpCases.map((caseStudy, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
-                  <div>
-                    <h3 className="text-3xl font-bold text-green-700 mb-2">{caseStudy.company}</h3>
-                    <div className="flex items-center space-x-4 text-gray-600">
-                      <span className="flex items-center">
-                        <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                        {caseStudy.country}
-                      </span>
-                      <span>|</span>
-                      <span>{caseStudy.year}</span>
-                      <span>|</span>
-                      <span className="font-semibold text-green-700">{caseStudy.solution}</span>
-                    </div>
+        <div className="grid gap-8 max-w-6xl mx-auto">
+          {badpCases.map((caseStudy, idx) => (
+            <div key={idx} className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-[var(--border)] hover:shadow-md transition-shadow">
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-8">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-green-700 mb-3">{caseStudy.company}</h3>
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 font-medium">
+                    <span className="flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      {caseStudy.country}
+                    </span>
+                    <span className="bg-gray-100 px-3 py-1 rounded-full">{caseStudy.year}</span>
+                    <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full">{caseStudy.solution}</span>
                   </div>
                 </div>
+              </div>
 
-                <p className="text-lg text-gray-700 mb-6">{caseStudy.description}</p>
+              <p className="text-xl text-gray-800 mb-8 leading-relaxed">{caseStudy.description}</p>
 
-                <div className="mb-6">
-                  <h4 className="text-xl font-semibold text-gray-900 mb-3">주요 성과</h4>
-                  <ul className="grid md:grid-cols-3 gap-4">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                    <span className="w-2 h-8 bg-green-500 rounded-full mr-3"></span>
+                    주요 성과
+                  </h4>
+                  <ul className="space-y-3">
                     {caseStudy.results.map((result, i) => (
-                      <li key={i} className="flex items-start bg-green-50 p-4 rounded-lg">
-                        <span className="text-green-600 mr-2">✓</span>
+                      <li key={i} className="flex items-start">
+                        <span className="text-green-500 mr-3 mt-1">✓</span>
                         <span className="text-gray-700">{result}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-
-                <div className="bg-gradient-to-r from-green-100 to-blue-100 p-4 rounded-lg">
-                  <p className="text-gray-800">
-                    <strong className="text-green-700">Impact:</strong> {caseStudy.impact}
+                <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-2xl flex flex-col justify-center">
+                  <strong className="text-green-800 text-sm uppercase tracking-wide mb-2">Impact</strong>
+                  <p className="text-gray-800 text-lg font-medium">
+                    "{caseStudy.impact}"
                   </p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* MIAO Cases */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">MIAO 첨가제 도입 사례</h2>
-            <p className="text-xl text-gray-600">
-              글로벌 제조사들의 혁신 여정
-            </p>
-          </div>
+      <Section background="default">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">MIAO 첨가제 도입 사례</h2>
+          <p className="text-lg text-[var(--muted-foreground)]">
+            글로벌 제조사들의 혁신 여정
+          </p>
+        </div>
 
-          <div className="space-y-8">
-            {miaoCases.map((caseStudy, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-l-4 border-blue-500">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
-                  <div>
-                    <h3 className="text-3xl font-bold text-blue-700 mb-2">{caseStudy.company}</h3>
-                    <div className="flex items-center space-x-4 text-gray-600">
-                      <span className="flex items-center">
-                        <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        {caseStudy.country}
-                      </span>
-                      <span>|</span>
-                      <span>{caseStudy.year}</span>
-                      <span>|</span>
-                      <span className="font-semibold text-blue-700">{caseStudy.solution}</span>
-                    </div>
+        <div className="grid gap-8 max-w-6xl mx-auto">
+          {miaoCases.map((caseStudy, idx) => (
+            <div key={idx} className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-[var(--border)] hover:shadow-md transition-shadow relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-2 h-full bg-blue-500"></div>
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-8 pl-4">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-blue-700 mb-3">{caseStudy.company}</h3>
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 font-medium">
+                    <span className="flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      {caseStudy.country}
+                    </span>
+                    <span className="bg-gray-100 px-3 py-1 rounded-full">{caseStudy.year}</span>
+                    <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full">{caseStudy.solution}</span>
                   </div>
                 </div>
+              </div>
 
-                <p className="text-lg text-gray-700 mb-6">{caseStudy.description}</p>
+              <p className="text-xl text-gray-800 mb-8 leading-relaxed pl-4">{caseStudy.description}</p>
 
-                <div className="mb-6">
-                  <h4 className="text-xl font-semibold text-gray-900 mb-3">주요 성과</h4>
-                  <ul className="grid md:grid-cols-3 gap-4">
+              <div className="grid md:grid-cols-2 gap-8 pl-4">
+                <div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                    <span className="w-2 h-8 bg-blue-500 rounded-full mr-3"></span>
+                    주요 성과
+                  </h4>
+                  <ul className="space-y-3">
                     {caseStudy.results.map((result, i) => (
-                      <li key={i} className="flex items-start bg-blue-50 p-4 rounded-lg">
-                        <span className="text-blue-600 mr-2">✓</span>
+                      <li key={i} className="flex items-start">
+                        <span className="text-blue-500 mr-3 mt-1">✓</span>
                         <span className="text-gray-700">{result}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-
-                <div className="bg-gradient-to-r from-blue-100 to-purple-100 p-4 rounded-lg">
-                  <p className="text-gray-800">
-                    <strong className="text-blue-700">Impact:</strong> {caseStudy.impact}
+                <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-2xl flex flex-col justify-center">
+                  <strong className="text-blue-800 text-sm uppercase tracking-wide mb-2">Impact</strong>
+                  <p className="text-gray-800 text-lg font-medium">
+                    "{caseStudy.impact}"
                   </p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">고객 평가</h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="flex items-center mb-4">
-                <div className="text-yellow-400 text-2xl">★★★★★</div>
-              </div>
-              <p className="text-gray-700 text-lg mb-4 italic">
-                "기존 설비 변경 없이 생분해 플라스틱을 생산할 수 있어서 비용 절감과 ESG 목표를 동시에 달성했습니다.
-                MIAO는 우리 회사의 게임 체인저였습니다."
-              </p>
-              <p className="text-gray-900 font-semibold">- 글로벌 포장재 제조사 R&D 담당자</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="flex items-center mb-4">
-                <div className="text-yellow-400 text-2xl">★★★★★</div>
-              </div>
-              <p className="text-gray-700 text-lg mb-4 italic">
-                "PLA로 전환하려다 물성과 비용 때문에 고민이 많았는데, BADP는 일반 비닐과 동일한 품질에
-                진짜 생분해까지 되어 완벽한 솔루션이었습니다."
-              </p>
-              <p className="text-gray-900 font-semibold">- 대형마트 구매팀장</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="flex items-center mb-4">
-                <div className="text-yellow-400 text-2xl">★★★★★</div>
-              </div>
-              <p className="text-gray-700 text-lg mb-4 italic">
-                "EL 724 인증으로 그린워싱 논란 없이 정말 친환경 제품임을 증명할 수 있었습니다.
-                고객 만족도도 크게 상승했습니다."
-              </p>
-              <p className="text-gray-900 font-semibold">- 친환경 브랜드 대표</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="flex items-center mb-4">
-                <div className="text-yellow-400 text-2xl">★★★★★</div>
-              </div>
-              <p className="text-gray-700 text-lg mb-4 italic">
-                "글로벌 파트너들의 검증을 받은 기술이라 신뢰할 수 있었고,
-                실제 적용 후 탄소 배출량이 크게 감소했습니다."
-              </p>
-              <p className="text-gray-900 font-semibold">- 대기업 ESG 담당 임원</p>
-            </div>
-          </div>
+      <Section background="muted">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">고객 평가</h2>
         </div>
-      </section>
+
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {[
+            {
+              text: "기존 설비 변경 없이 생분해 플라스틱을 생산할 수 있어서 비용 절감과 ESG 목표를 동시에 달성했습니다. MIAO는 우리 회사의 게임 체인저였습니다.",
+              author: "글로벌 포장재 제조사 R&D 담당자"
+            },
+            {
+              text: "PLA로 전환하려다 물성과 비용 때문에 고민이 많았는데, BADP는 일반 비닐과 동일한 품질에 진짜 생분해까지 되어 완벽한 솔루션이었습니다.",
+              author: "대형마트 구매팀장"
+            },
+            {
+              text: "EL 724 인증으로 그린워싱 논란 없이 정말 친환경 제품임을 증명할 수 있었습니다. 고객 만족도도 크게 상승했습니다.",
+              author: "친환경 브랜드 대표"
+            },
+            {
+              text: "글로벌 파트너들의 검증을 받은 기술이라 신뢰할 수 있었고, 실제 적용 후 탄소 배출량이 크게 감소했습니다.",
+              author: "대기업 ESG 담당 임원"
+            }
+          ].map((testimonial, i) => (
+            <div key={i} className="bg-white p-10 rounded-3xl shadow-sm border border-[var(--border)] relative">
+              <div className="text-yellow-400 text-2xl mb-6">★★★★★</div>
+              <p className="text-gray-700 text-lg mb-6 italic leading-relaxed">
+                "{testimonial.text}"
+              </p>
+              <p className="text-gray-900 font-bold border-t border-gray-100 pt-4 inline-block">
+                - {testimonial.author}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-green-700 to-blue-700 text-white">
