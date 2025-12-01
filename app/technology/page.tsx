@@ -6,7 +6,7 @@ export default function Technology() {
       name: 'EL 724',
       organization: '한국환경산업기술원',
       description: '토양 생분해 인증',
-      significance: '국내 최초 상온 토양 생분해 인증 획득',
+      significance: '생분해성 멀칭필름, 생분해성 농업용 필름',
       color: 'green',
     },
     {
@@ -101,7 +101,7 @@ export default function Technology() {
                 {
                   step: 1,
                   title: '토양 접촉',
-                  desc: 'BADP/MIAO가 첨가된 플라스틱이 토양에 버려지면, 토양 속 미생물이 플라스틱 표면에 집락을 형성합니다.',
+                  desc: 'Ecofade 솔루션 첨가제가 첨가된 플라스틱이 토양에 버려지면, 토양 속 미생물이 플라스틱 표면에 집락을 형성합니다.',
                   color: 'bg-green-600'
                 },
                 {
@@ -119,7 +119,7 @@ export default function Technology() {
                 {
                   step: 4,
                   title: '완전 분해',
-                  desc: '6-12개월 후, 플라스틱은 완전히 사라지고 CO₂와 물만 남습니다. 미세 플라스틱이나 독성 물질은 전혀 남지 않습니다.',
+                  desc: '1~3년 후, 플라스틱은 완전히 사라지고 CO₂와 물만 남습니다. 미세 플라스틱이나 독성 물질은 전혀 남지 않습니다.',
                   color: 'bg-orange-600'
                 }
               ].map((item, i) => (
@@ -170,7 +170,7 @@ export default function Technology() {
             </div>
           ))}
         </div>
-
+        {/*
         <div className="max-w-4xl mx-auto bg-[var(--primary)] p-8 md:p-12 rounded-3xl text-white text-center shadow-xl relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-white/10 to-transparent"></div>
           <div className="relative z-10">
@@ -182,6 +182,7 @@ export default function Technology() {
             </p>
           </div>
         </div>
+        */}
       </Section>
 
       {/* Technology Comparison */}
@@ -189,7 +190,7 @@ export default function Technology() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">타사 기술 비교</h2>
           <p className="text-lg text-[var(--muted-foreground)]">
-            BADP vs PLA/PBAT vs 산화분해
+            Ecofade 솔루션 vs PLA/PBAT vs 산화분해
           </p>
         </div>
 
@@ -200,7 +201,7 @@ export default function Technology() {
                 <tr className="bg-gray-900 text-white">
                   <th className="p-6 text-left text-lg font-semibold">비교 항목</th>
                   <th className="p-6 text-center bg-[var(--primary)] text-lg font-bold border-b-4 border-green-800">
-                    BADP/MIAO<br /><span className="text-sm font-normal opacity-90">(당사)</span>
+                    Ecofade 솔루션<br /><span className="text-sm font-normal opacity-90">(당사)</span>
                   </th>
                   <th className="p-6 text-center text-lg font-semibold">PLA/PBAT</th>
                   <th className="p-6 text-center text-lg font-semibold">산화분해</th>
@@ -230,7 +231,7 @@ export default function Technology() {
 
         <div className="mt-12 grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           <div className="bg-green-50 p-8 rounded-2xl border border-green-100">
-            <h4 className="text-xl font-bold text-green-800 mb-3">✓ BADP/MIAO</h4>
+            <h4 className="text-xl font-bold text-green-800 mb-3">✓ Ecofade 솔루션</h4>
             <p className="text-green-700 leading-relaxed">
               상온 토양에서 완전 분해, 미세 플라스틱 Zero, 재활용 가능
             </p>
@@ -280,8 +281,17 @@ export default function Technology() {
               ))}
             </ul>
           </div>
-
-          <div className="bg-white p-10 rounded-3xl shadow-sm border border-[var(--border)]">
+          {/* MIAO Mechanism */}
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-[var(--border)]">
+            <div className="text-center mb-8">
+              <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">
+                🧪
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Ecofade 솔루션 (MIAO 기반 첨가제 기술)</h3>
+              <p className="text-gray-600">
+                미생물 유도 인공 산화 분해 메커니즘
+              </p>
+            </div>
             <div className="flex items-center mb-8">
               <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mr-6">
                 <svg className="w-8 h-8 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">

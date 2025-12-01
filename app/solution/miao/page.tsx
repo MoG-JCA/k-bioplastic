@@ -12,7 +12,7 @@ export default function MIAO() {
     '가격 경쟁력 우수 (타 첨가제 대비)',
     'FDA, RoHS 등 국제 안전 기준 충족',
     '제품의 투명도 및 물성 저하 없음',
-    '유통 기한 조절 가능 (첨가량 조절)',
+    '생분해 속도 조절 가능 (첨가량 조절)',
     '재활용 공정에 영향 없음',
     '브랜드 맞춤형 솔루션 제공',
   ];
@@ -42,10 +42,12 @@ export default function MIAO() {
       <section className="relative py-24 bg-[var(--primary)] text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="container-width relative z-10 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 tracking-tight">MIAO 솔루션</h1>
-          <p className="text-xl md:text-2xl text-green-50 max-w-2xl mx-auto leading-relaxed">
-            Microorganism Induced Artificial Oxidation<br />
-            <span className="font-semibold text-white">플라스틱 제조사를 위한 혁신적 첨가제</span>
+          <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 tracking-tight">
+            생분해 플라스틱솔루션 Ecofade
+          </h1>
+          <p className="text-xl md:text-2xl text-blue-50 max-w-2xl mx-auto leading-relaxed">
+            플라스틱 제조사를 위한<br />
+            가장 현실적이고 경제적인 Ecofade 솔루션
           </p>
         </div>
       </section>
@@ -55,11 +57,12 @@ export default function MIAO() {
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+              <th className="p-4 text-center bg-blue-600 text-white font-bold border-b-4 border-blue-800">Ecofade 솔루션 (MIAO)</th>
               단 1%의 첨가로<br />
               <span className="text-blue-600">친환경 기업으로 도약하세요</span>
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              MIAO는 플라스틱 원료(Resin)에 소량 첨가하여 일반 플라스틱을 생분해 플라스틱으로 전환시켜주는 마스터배치(Masterbatch) 형태의 첨가제입니다.
+              Ecofade 솔루션 MIAO는 플라스틱 원료(Resin)에 소량 첨가하여 일반 플라스틱을 생분해 플라스틱으로 전환시켜주는 마스터배치(Masterbatch) 형태의 첨가제입니다.
             </p>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
               제조 설비를 바꾸거나 원료를 전면 교체할 필요 없이, 기존 공정에 MIAO를 첨가하는 것만으로 ESG 경영을 실현할 수 있습니다.
@@ -77,21 +80,23 @@ export default function MIAO() {
               className="absolute inset-0 w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
-            <div className="relative z-10 text-white font-bold text-xl drop-shadow-md">MIAO Masterbatch</div>
+            <div className="relative z-10 text-white font-bold text-xl drop-shadow-md">Ecofade Masterbatch</div>
           </div>
         </div>
       </Section>
 
-      {/* 10 Advantages */}
-      <Section background="muted">
+      {/* Advantages Grid */}
+      <Section background="default">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">MIAO의 10대 장점</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ecofade의 10대 장점
+          </h2>
           <p className="text-lg text-[var(--muted-foreground)]">
-            제조사를 위한 최적의 솔루션
+            기존 설비 그대로, 원가는 낮추고 품질은 그대로 유지합니다.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {advantages.map((adv, idx) => (
             <div key={idx} className="flex items-start bg-white p-6 rounded-2xl shadow-sm border border-[var(--border)] hover:shadow-md transition-all">
               <div className="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
@@ -108,7 +113,7 @@ export default function MIAO() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">작동 메커니즘</h2>
           <p className="text-lg text-[var(--muted-foreground)]">
-            MIAO가 플라스틱을 분해하는 과정
+            Ecofade 솔루션 MIAO가 플라스틱을 분해하는 과정
           </p>
         </div>
 
@@ -164,7 +169,7 @@ export default function MIAO() {
       <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            MIAO 샘플 테스트를 신청하세요
+            Ecofade 샘플 테스트를 신청하세요
           </h2>
           <p className="text-xl mb-8">
             귀사의 제품에 바로 적용하여 테스트해볼 수 있습니다.

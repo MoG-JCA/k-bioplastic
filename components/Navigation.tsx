@@ -55,12 +55,12 @@ export default function Navigation() {
               </button>
               <div className="absolute left-0 mt-2 w-56 bg-white/95 backdrop-blur-md shadow-lg rounded-xl border border-[var(--border)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left p-2">
                 <Link href="/solution/badp" className="block px-4 py-3 text-sm text-[var(--foreground)] hover:bg-[var(--secondary)] rounded-lg transition-colors">
-                  <span className="font-semibold block">생분해 완제품 (BADP)</span>
-                  <span className="text-xs text-[var(--muted-foreground)]">친환경 완제품 솔루션</span>
+                  <span className="font-semibold block">EcoBio 생분해 생활솔루션</span>
+                  <span className="text-xs text-[var(--muted-foreground)]">유통/리테일 파트너를 위한 솔루션</span>
                 </Link>
                 <Link href="/solution/miao" className="block px-4 py-3 text-sm text-[var(--foreground)] hover:bg-[var(--secondary)] rounded-lg transition-colors">
-                  <span className="font-semibold block">생분해 첨가제 (MIAO)</span>
-                  <span className="text-xs text-[var(--muted-foreground)]">혁신적인 첨가제 기술</span>
+                  <span className="font-semibold block">Ecofade 생분해 플라스틱솔루션</span>
+                  <span className="text-xs text-[var(--muted-foreground)]">플라스틱 제조사를 위한 솔루션</span>
                 </Link>
               </div>
             </div>
@@ -110,10 +110,10 @@ export default function Navigation() {
           <div className="space-y-2 pl-4 border-l-2 border-[var(--border)]">
             <p className="text-sm font-semibold text-[var(--muted-foreground)] uppercase tracking-wider">솔루션</p>
             <Link href="/solution/badp" className="block text-base text-[var(--foreground)] hover:text-[var(--primary)]" onClick={() => setIsOpen(false)}>
-              생분해 완제품 (BADP)
+              EcoBio 생분해 생활솔루션
             </Link>
             <Link href="/solution/miao" className="block text-base text-[var(--foreground)] hover:text-[var(--primary)]" onClick={() => setIsOpen(false)}>
-              생분해 첨가제 (MIAO)
+              Ecofade 생분해 플라스틱솔루션
             </Link>
           </div>
           <Link href="/technology" className="block text-lg font-medium text-[var(--foreground)] hover:text-[var(--primary)]" onClick={() => setIsOpen(false)}>

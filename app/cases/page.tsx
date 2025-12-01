@@ -140,9 +140,11 @@ export default function Cases() {
       {/* BADP Cases */}
       <Section background="muted">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">BADP 완제품 도입 사례</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            생분해 생활솔루션 ‘싱싱프레’ 도입 사례
+          </h2>
           <p className="text-lg text-[var(--muted-foreground)]">
-            유통/리테일 파트너들의 성공 스토리
+            다양한 산업 현장에서 검증된 싱싱프레의 우수성
           </p>
         </div>
 

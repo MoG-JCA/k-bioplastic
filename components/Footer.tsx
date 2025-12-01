@@ -41,12 +41,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/solution/badp" className="text-gray-300 hover:text-[var(--primary)] transition-colors">
-                  BADP 완제품
+                  생분해 생활솔루션
                 </Link>
               </li>
               <li>
                 <Link href="/solution/miao" className="text-gray-300 hover:text-[var(--primary)] transition-colors">
-                  MIAO 첨가제
+                  생분해 플라스틱솔루션
                 </Link>
               </li>
               <li>

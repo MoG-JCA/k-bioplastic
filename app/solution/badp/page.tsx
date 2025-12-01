@@ -52,11 +52,11 @@ export default function BADP() {
   const faqs = [
     {
       question: '일반 플라스틱과 어떻게 구분하나요?',
-      answer: '육안으로는 구분이 어렵지만, 제품에 표기된 EL 724 인증 마크를 통해 확인할 수 있습니다. 물성과 투명도는 일반 플라스틱과 동일합니다.'
+      answer: '육안으로는 구분이 어렵지만, 제품에 표기된 환경부 친환경 인증 (생분해성 멀칭필름, 생분해성 농업용 필름) 마크를 통해 확인할 수 있습니다. 물성과 투명도는 일반 플라스틱과 동일합니다.'
     },
     {
       question: '보관 중에 분해되지는 않나요?',
-      answer: '아니요. BADP 제품은 토양 속 미생물과 접촉해야만 분해가 시작됩니다. 일반적인 창고나 가정 환경에서는 분해되지 않으며, 유통기한 동안 물성이 유지됩니다.'
+      answer: '아니요. EcoBio 생분해 제품은 토양 속 미생물과 접촉해야만 분해가 시작됩니다. 일반적인 창고나 가정 환경에서는 분해되지 않으며, 유통기한 동안 물성이 유지됩니다.'
     },
     {
       question: '음식물을 담아도 안전한가요?',
@@ -74,10 +74,12 @@ export default function BADP() {
       <section className="relative py-24 bg-[var(--primary)] text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="container-width relative z-10 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 tracking-tight">BADP 솔루션</h1>
+          <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 tracking-tight">
+            생분해 생활솔루션
+          </h1>
           <p className="text-xl md:text-2xl text-green-50 max-w-2xl mx-auto leading-relaxed">
-            Biodegradable Additive for Degradable Plastic<br />
-            <span className="font-semibold text-white">완벽한 생분해 완제품 솔루션</span>
+            생분해 생활솔루션 ‘싱싱프레’<br />
+            자연에서 와서 자연으로 돌아가는 진정한 친환경 라이프스타일
           </p>
         </div>
       </section>
@@ -91,7 +93,7 @@ export default function BADP() {
               <span className="text-green-600">환경 부담은 Zero</span>
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              BADP는 일반 플라스틱(PE, PP, PS 등)에 특수 미생물 효소 첨가제를 배합하여 만든 생분해 플라스틱 제품군입니다.
+              EcoBio의 생분해 솔루션은 일반 플라스틱(PE, PP, PS 등)에 생분해 첨가제를 배합하여 만든 생분해 플라스틱 제품군입니다.
             </p>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
               기존 생분해 플라스틱(PLA, PBAT)의 단점인 약한 물성, 높은 가격, 까다로운 분해 조건을 모두 해결한 혁신적인 솔루션입니다.
@@ -117,20 +119,31 @@ export default function BADP() {
       {/* Key Features */}
       <Section background="muted">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">핵심 장점</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            싱싱프레의 특별함
+          </h2>
           <p className="text-lg text-[var(--muted-foreground)]">
-            왜 BADP를 선택해야 할까요?
+            환경부 친환경 인증(EL724)을 획득한 믿을 수 있는 제품입니다.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {features.map((feature, idx) => (
-            <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-[var(--border)] hover:shadow-md transition-all hover:-translate-y-1">
-              <div className="text-5xl mb-6">{feature.icon}</div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed">
-                {feature.description}
-              </p>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[
+            { title: '멀칭필름 생분해성 인증', desc: 'EL724 인증 획득으로 토양 오염 방지', icon: '🌱' },
+            { title: '기능성 필름 및 용기', desc: '다양한 용도로 활용 가능한 친환경 소재', icon: '🍱' },
+            { title: '농산물 저장·유통', desc: '신선도를 오래 유지하는 숨쉬는 포장', icon: '🥦' },
+            { title: '선도유지 지퍼백', desc: '야채와 과일의 신선함을 더 오래오래', icon: '🍅' },
+            { title: '완벽한 생분해', desc: '사용 후 퇴비화되어 자연으로 환원', icon: '♻️' },
+            { title: '탄소 저감', desc: '생산 및 폐기 과정에서 탄소 배출 최소화', icon: '🌍' },
+          ].map((feature, i) => (
+            <div key={i} className="flex items-start p-6 rounded-2xl border border-[var(--border)] bg-white hover:bg-green-50/30 transition-colors">
+              <div className="bg-green-100 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mr-6 flex-shrink-0">
+                {feature.icon}
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-gray-600">{feature.desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -141,7 +154,7 @@ export default function BADP() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">제품 라인업</h2>
           <p className="text-lg text-[var(--muted-foreground)]">
-            다양한 산업 분야에 적용 가능한 BADP 제품
+            다양한 산업 분야에 적용 가능한 싱싱프레 제품
           </p>
         </div>
 
@@ -171,7 +184,7 @@ export default function BADP() {
               <thead>
                 <tr className="bg-gray-900 text-white">
                   <th className="p-4 text-left font-semibold">구분</th>
-                  <th className="p-4 text-center bg-[var(--primary)] font-bold border-b-4 border-green-800">BADP</th>
+                  <th className="p-4 text-center bg-[var(--primary)] font-bold border-b-4 border-green-800">EcoBio 생분해 생활솔루션</th>
                   <th className="p-4 text-center font-semibold">PLA / PBAT</th>
                   <th className="p-4 text-center font-semibold">산화생분해</th>
                 </tr>
@@ -220,7 +233,7 @@ export default function BADP() {
       <section className="py-20 bg-gradient-to-r from-green-600 to-teal-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            BADP 제품 도입을 고민 중이신가요?
+            당신의 선택이 지구환경을 살릴 수 있습니다.
           </h2>
           <p className="text-xl mb-8">
             샘플 신청 및 견적 문의를 통해 직접 확인해보세요.
