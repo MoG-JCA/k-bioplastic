@@ -208,7 +208,7 @@ export default function Contact() {
                     : 'bg-green-50 text-green-700 hover:bg-green-100'
                     }`}
                 >
-                  BADP 견적/샘플
+                  생분해 생활솔루션 견적/샘플
                 </button>
                 <button
                   type="button"
@@ -218,7 +218,7 @@ export default function Contact() {
                     : 'bg-blue-50 text-blue-700 hover:bg-blue-100'
                     }`}
                 >
-                  MIAO 견적/샘플
+                  생분해 플라스틱솔루션 견적/샘플
                 </button>
               </div>
             </div>
@@ -290,7 +290,7 @@ export default function Contact() {
               {inquiryType === 'badp' && (
                 <div className="bg-green-50 p-6 rounded-2xl border border-green-100 space-y-6">
                   <h4 className="font-bold text-green-800 flex items-center">
-                    <span className="mr-2">🌱</span> BADP 상세 요청
+                    <span className="mr-2">🌱</span> 생분해 생활솔루션 상세 요청
                   </h4>
                   <div>
                     <label className="block text-sm font-semibold text-gray-900 mb-3">
@@ -346,7 +346,7 @@ export default function Contact() {
               {inquiryType === 'miao' && (
                 <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 space-y-6">
                   <h4 className="font-bold text-blue-800 flex items-center">
-                    <span className="mr-2">🧪</span> MIAO 상세 요청
+                    <span className="mr-2">🧪</span> 생분해 플라스틱솔루션 상세 요청
                   </h4>
                   <div>
                     <label className="block text-sm font-semibold text-gray-900 mb-2">
