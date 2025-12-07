@@ -1,72 +1,19 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Section } from '@/components/ui/Section';
 import { FAQSection } from '@/components/FAQSection';
+import { BADP_FEATURES, BADP_PRODUCTS, BADP_FAQS } from '@/lib/content';
+
+export const metadata: Metadata = {
+  title: '생분해 생활솔루션 (BADP)',
+  description: '상온 토양에서 100% 분해되는 혁신적인 생분해 생활솔루션. 멀칭필름, 쇼핑백, 식품 포장재 등 다양한 친환경 제품을 만나보세요.',
+};
 
 export default function BADP() {
-  const features = [
-    {
-      title: '상온 토양 생분해',
-      description: '별도의 퇴비화 시설 없이 일반 토양(20~30℃)에서 미생물에 의해 100% 분해됩니다.',
-      icon: '🌱',
-    },
-    {
-      title: '물성 유지',
-      description: '기존 플라스틱(PE, PP 등)과 동등한 물성을 유지하여 내구성과 사용성이 뛰어납니다.',
-      icon: '💪',
-    },
-    {
-      title: '가격 경쟁력',
-      description: 'PLA, PBAT 등 타 생분해 소재 대비 30% 이상 저렴하여 경제적입니다.',
-      icon: '💰',
-    },
-    {
-      title: '재활용 가능',
-      description: '분해되기 전까지는 일반 플라스틱처럼 재활용이 가능하여 순환 경제에 기여합니다.',
-      icon: '♻️',
-    },
-  ];
-
-  const products = [
-    {
-      name: '쇼핑백/비닐봉투',
-      desc: '마트, 편의점 등에서 사용되는 친환경 생분해 봉투',
-      image: '🛍️',
-    },
-    {
-      name: '식품 포장재',
-      desc: '신선 식품, 냉동 식품 등을 위한 안전한 포장',
-      image: '🍎',
-    },
-    {
-      name: '농업용 멀칭 필름',
-      desc: '수확 후 수거할 필요 없이 토양에 갈아엎는 필름',
-      image: '🚜',
-    },
-    {
-      name: '위생장갑/지퍼백',
-      desc: '가정에서 사용하는 일회용 주방 용품',
-      image: '🧤',
-    },
-  ];
-
-  const faqs = [
-    {
-      question: '일반 플라스틱과 어떻게 구분하나요?',
-      answer: '육안으로는 구분이 어렵지만, 제품에 표기된 환경부 친환경 인증 (생분해성 멀칭필름, 생분해성 농업용 필름) 마크를 통해 확인할 수 있습니다. 물성과 투명도는 일반 플라스틱과 동일합니다.'
-    },
-    {
-      question: '보관 중에 분해되지는 않나요?',
-      answer: '아니요. EcoBio 생분해 제품은 토양 속 미생물과 접촉해야만 분해가 시작됩니다. 일반적인 창고나 가정 환경에서는 분해되지 않으며, 유통기한 동안 물성이 유지됩니다.'
-    },
-    {
-      question: '음식물을 담아도 안전한가요?',
-      answer: '네, 안전합니다. FDA 식품 접촉 승인을 받은 안전한 원료를 사용하며, 환경 호르몬이나 유해 물질이 검출되지 않습니다.'
-    },
-    {
-      question: '분리 배출은 어떻게 하나요?',
-      answer: '일반 플라스틱과 동일하게 재활용(Recycle)으로 배출하시면 됩니다. 매립되더라도 자연 분해되므로 환경 오염을 일으키지 않습니다.'
-    }
-  ];
+  const features = BADP_FEATURES;
+  const products = BADP_PRODUCTS;
+  const faqs = BADP_FAQS;
 
   return (
     <div className="min-h-screen pt-16">
@@ -105,11 +52,15 @@ export default function BADP() {
             </div>
           </div>
           <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-3xl border border-[var(--border)] flex items-center justify-center min-h-[300px] overflow-hidden relative">
-            <img
-              src="/images/badp-bag.png"
-              alt="BADP Eco Shopping Bag"
-              className="absolute inset-0 w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
-            />
+            <div className="relative w-full h-full min-h-[300px]">
+              <Image
+                src="/images/badp-bag.png"
+                alt="BADP Eco Shopping Bag"
+                fill
+                className="object-cover opacity-90 hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-green-900/50 to-transparent"></div>
             <div className="relative z-10 text-white font-bold text-xl drop-shadow-md">Eco-Friendly Shopping Bag</div>
           </div>

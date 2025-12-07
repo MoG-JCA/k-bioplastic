@@ -2,21 +2,22 @@
 
 import { useState, useEffect } from 'react';
 import { Section } from '@/components/ui/Section';
+import { PLA_PRICE_MULTIPLIER, MIAO_PRICE_MULTIPLIER } from '@/lib/constants';
 
 export function CostCalculator() {
     const [monthlyUsage, setMonthlyUsage] = useState<number>(10000); // kg
     const [currentPrice, setCurrentPrice] = useState<number>(1500); // KRW/kg (General Plastic)
-
-    // Assumptions
-    const PLA_PRICE_MULTIPLIER = 3.5; // PLA is ~3.5x more expensive
-    const MIAO_PRICE_MULTIPLIER = 1.15; // MIAO is ~1.15x more expensive
 
     const [savings, setSavings] = useState<number>(0);
     const [miaoCost, setMiaoCost] = useState<number>(0);
     const [plaCost, setPlaCost] = useState<number>(0);
 
     useEffect(() => {
-        const baseCost = monthlyUsage * currentPrice;
+        // Validation: Ensure values are non-negative
+        const validUsage = Math.max(0, monthlyUsage);
+        const validPrice = Math.max(0, currentPrice);
+
+        const baseCost = validUsage * validPrice;
         const calculatedPlaCost = baseCost * PLA_PRICE_MULTIPLIER;
         const calculatedMiaoCost = baseCost * MIAO_PRICE_MULTIPLIER;
 
@@ -70,8 +71,9 @@ export function CostCalculator() {
                                 <div className="relative">
                                     <input
                                         type="number"
+                                        min="0"
                                         value={currentPrice}
-                                        onChange={(e) => setCurrentPrice(Number(e.target.value))}
+                                        onChange={(e) => setCurrentPrice(Math.max(0, Number(e.target.value)))}
                                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent"
                                     />
                                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">원</span>
@@ -85,7 +87,7 @@ export function CostCalculator() {
                             <div className="space-y-2">
                                 <div className="flex justify-between text-sm text-gray-600">
                                     <span>PLA/PBAT 전환 시 예상 비용</span>
-                                    <span>(약 3.5배)</span>
+                                    <span>(약 {PLA_PRICE_MULTIPLIER}배)</span>
                                 </div>
                                 <div className="text-xl font-bold text-gray-400 line-through">
                                     {formatCurrency(plaCost)}
@@ -95,7 +97,7 @@ export function CostCalculator() {
                             <div className="space-y-2">
                                 <div className="flex justify-between text-sm text-[var(--primary)] font-bold">
                                     <span>MIAO 도입 시 예상 비용</span>
-                                    <span>(약 1.15배)</span>
+                                    <span>(약 {MIAO_PRICE_MULTIPLIER}배)</span>
                                 </div>
                                 <div className="text-3xl font-bold text-[var(--primary)]">
                                     {formatCurrency(miaoCost)}
@@ -108,7 +110,7 @@ export function CostCalculator() {
                                     {formatCurrency(savings)}
                                 </p>
                                 <p className="text-xs text-green-600 mt-2">
-                                    * PLA 대비 약 {((savings / plaCost) * 100).toFixed(0)}% 비용 절감 효과
+                                    * PLA 대비 약 {plaCost > 0 ? ((savings / plaCost) * 100).toFixed(0) : 0}% 비용 절감 효과
                                 </p>
                             </div>
                         </div>

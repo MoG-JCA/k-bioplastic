@@ -1,6 +1,7 @@
 import Parser from 'rss-parser';
 import { Section } from '@/components/ui/Section';
 import Link from 'next/link';
+import { RSS_FEED_URL } from '@/lib/constants';
 
 type NewsItem = {
     title: string;
@@ -11,18 +12,22 @@ type NewsItem = {
 };
 
 async function getNews(): Promise<NewsItem[]> {
-    const parser = new Parser();
-    const FEED_URL = 'https://earth911.com/feed'; // Example feed
-
     try {
-        const feed = await parser.parseURL(FEED_URL);
-        return feed.items.slice(0, 3).map(item => ({
+        // Use fetch for ISR support
+        const response = await fetch(RSS_FEED_URL, { next: { revalidate: 3600 } });
+        if (!response.ok) throw new Error('Failed to fetch RSS feed');
+        const xml = await response.text();
+
+        const parser = new Parser();
+        const feed = await parser.parseString(xml);
+
+        return feed.items?.slice(0, 3).map(item => ({
             title: item.title || 'No Title',
             link: item.link || '#',
-            pubDate: item.pubDate || '',
-            contentSnippet: item.contentSnippet,
+            pubDate: item.pubDate || new Date().toISOString(),
+            contentSnippet: item.contentSnippet || '',
             source: 'Earth911'
-        }));
+        })) || [];
     } catch (error) {
         console.error('Failed to fetch news:', error);
         return [];
@@ -52,26 +57,28 @@ export async function NewsSection() {
 
             <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
                 {news.map((item, idx) => (
-                    <Link key={idx} href={item.link} target="_blank" className="group block h-full">
-                        <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 h-full border border-[var(--border)] flex flex-col">
-                            <div className="flex items-center justify-between mb-4 text-xs text-[var(--muted-foreground)]">
-                                <span className="bg-green-50 text-green-700 px-2 py-1 rounded-md font-medium">{item.source}</span>
-                                <span>{new Date(item.pubDate).toLocaleDateString()}</span>
+                    <article key={idx} className="h-full">
+                        <Link href={item.link} target="_blank" className="group block h-full">
+                            <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 h-full border border-[var(--border)] flex flex-col">
+                                <div className="flex items-center justify-between mb-4 text-xs text-[var(--muted-foreground)]">
+                                    <span className="bg-green-50 text-green-700 px-2 py-1 rounded-md font-medium">{item.source}</span>
+                                    <time dateTime={item.pubDate}>{new Date(item.pubDate).toLocaleDateString()}</time>
+                                </div>
+                                <h3 className="text-lg font-bold mb-3 line-clamp-2 group-hover:text-[var(--primary)] transition-colors">
+                                    {item.title}
+                                </h3>
+                                <p className="text-sm text-[var(--muted-foreground)] line-clamp-3 mb-4 flex-grow">
+                                    {item.contentSnippet}
+                                </p>
+                                <div className="text-sm font-medium text-gray-400 group-hover:text-[var(--primary)] flex items-center gap-1 mt-auto">
+                                    Read more
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </div>
                             </div>
-                            <h3 className="text-lg font-bold mb-3 line-clamp-2 group-hover:text-[var(--primary)] transition-colors">
-                                {item.title}
-                            </h3>
-                            <p className="text-sm text-[var(--muted-foreground)] line-clamp-3 mb-4 flex-grow">
-                                {item.contentSnippet}
-                            </p>
-                            <div className="text-sm font-medium text-gray-400 group-hover:text-[var(--primary)] flex items-center gap-1 mt-auto">
-                                Read more
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg>
-                            </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    </article>
                 ))}
             </div>
         </Section>

@@ -1,40 +1,19 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Section } from '@/components/ui/Section';
 import { CostCalculator } from '@/components/CostCalculator';
 import { FAQSection } from '@/components/FAQSection';
+import { MIAO_ADVANTAGES, MIAO_FAQS } from '@/lib/content';
+
+export const metadata: Metadata = {
+  title: '생분해 플라스틱솔루션 (MIAO)',
+  description: '플라스틱 제조사를 위한 혁신적인 생분해 첨가제 솔루션. 기존 설비 그대로, 최소한의 비용으로 친환경 기업으로 도약하세요.',
+};
 
 export default function MIAO() {
-  const advantages = [
-    '기존 생산 설비 그대로 사용 가능 (별도 투자 불필요)',
-    '1~2% 소량 첨가만으로 생분해 성능 발현',
-    '생산 공정 및 사이클 타임에 영향 없음',
-    '모든 범용 플라스틱(PE, PP, PS, PET 등)에 적용 가능',
-    '가격 경쟁력 우수 (타 첨가제 대비)',
-    'FDA, RoHS 등 국제 안전 기준 충족',
-    '제품의 투명도 및 물성 저하 없음',
-    '생분해 속도 조절 가능 (첨가량 조절)',
-    '재활용 공정에 영향 없음',
-    '브랜드 맞춤형 솔루션 제공',
-  ];
-
-  const faqs = [
-    {
-      question: '기존 생산 설비를 변경해야 하나요?',
-      answer: '아니요, 전혀 필요하지 않습니다. MIAO는 마스터배치(Masterbatch) 형태로 제공되므로, 기존 원료와 함께 호퍼에 투입하기만 하면 됩니다. 금형이나 스크류 변경 없이 즉시 생산 가능합니다.'
-    },
-    {
-      question: '제품의 물성(강도, 투명도)이 변하나요?',
-      answer: 'MIAO는 1~2%의 소량만 첨가되므로 기존 플라스틱의 물성을 99% 이상 유지합니다. 인장 강도, 충격 강도, 투명도 등에서 일반 플라스틱과 차이가 없습니다.'
-    },
-    {
-      question: '분해 기간은 얼마나 걸리나요?',
-      answer: '제품의 두께와 환경 조건(토양 온도, 습도, 미생물 분포)에 따라 다르지만, 일반적으로 폐기 후 6개월에서 2년 사이에 완전 분해됩니다. 유통 기한 중에는 분해되지 않으므로 안심하고 사용할 수 있습니다.'
-    },
-    {
-      question: '재활용이 가능한가요?',
-      answer: '네, 가능합니다. MIAO가 첨가된 플라스틱은 분해가 시작되기 전까지는 일반 플라스틱과 동일하게 재활용(Recycle)할 수 있습니다. 폐기 시에만 생분해 메커니즘이 작동합니다.'
-    }
-  ];
+  const advantages = MIAO_ADVANTAGES;
+  const faqs = MIAO_FAQS;
 
   return (
     <div className="min-h-screen pt-16">
@@ -74,11 +53,15 @@ export default function MIAO() {
             </div>
           </div>
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-3xl border border-[var(--border)] flex items-center justify-center min-h-[300px] overflow-hidden relative">
-            <img
-              src="/images/miao-pellets.png"
-              alt="MIAO Additive Pellets"
-              className="absolute inset-0 w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"
-            />
+            <div className="relative w-full h-full min-h-[300px]">
+              <Image
+                src="/images/miao-pellets.png"
+                alt="MIAO Additive Pellets"
+                fill
+                className="object-cover opacity-90 hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
             <div className="relative z-10 text-white font-bold text-xl drop-shadow-md">Ecofade Masterbatch</div>
           </div>
