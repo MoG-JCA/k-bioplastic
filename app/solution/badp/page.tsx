@@ -6,7 +6,7 @@ import { FAQSection } from '@/components/FAQSection';
 import { BADP_FEATURES, BADP_PRODUCTS, BADP_FAQS } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: '생분해 생활솔루션 (BADP)',
+  title: 'SingSingFresh (싱싱프레) - 생분해 생활솔루션',
   description: '상온 토양에서 100% 분해되는 혁신적인 생분해 생활솔루션. 멀칭필름, 쇼핑백, 식품 포장재 등 다양한 친환경 제품을 만나보세요.',
 };
 
@@ -22,7 +22,7 @@ export default function BADP() {
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="container-width relative z-10 text-center">
           <h1 className="text-5xl md:text-6xl font-bold font-display mb-6 tracking-tight">
-            생분해 생활솔루션
+            SingSingFresh (싱싱프레)
           </h1>
           <p className="text-xl md:text-2xl text-green-50 max-w-2xl mx-auto leading-relaxed">
             생분해 생활솔루션 ‘싱싱프레’<br />
@@ -129,47 +129,59 @@ export default function BADP() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">비교 분석</h2>
         </div>
-        <div className="max-w-5xl mx-auto overflow-hidden rounded-2xl border border-[var(--border)] shadow-sm bg-white">
+        <div className="max-w-6xl mx-auto overflow-hidden rounded-2xl border border-[var(--border)] shadow-sm bg-white">
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
                 <tr className="bg-gray-900 text-white">
                   <th className="p-4 text-left font-semibold">구분</th>
-                  <th className="p-4 text-center bg-[var(--primary)] font-bold border-b-4 border-green-800">EcoBio 생분해 생활솔루션</th>
-                  <th className="p-4 text-center font-semibold">PLA / PBAT</th>
-                  <th className="p-4 text-center font-semibold">산화생분해</th>
+                  <th className="p-4 text-center bg-[var(--primary)] font-bold border-b-4 border-green-800">EcoBio (선도유지 포장재)</th>
+                  <th className="p-4 text-center font-semibold">경쟁사 H (기능성)</th>
+                  <th className="p-4 text-center font-semibold">경쟁사 T (기능성)</th>
+                  <th className="p-4 text-center font-semibold">PLA (바이오 플라스틱)</th>
+                  <th className="p-4 text-center font-semibold">일반 비닐 (PE/PP)</th>
                 </tr>
               </thead>
               <tbody className="text-gray-700">
                 <tr className="border-b border-gray-100">
-                  <td className="p-4 font-semibold">가격</td>
-                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">저렴함 (기존 대비 +10~20%)</td>
-                  <td className="p-4 text-center">매우 비쌈 (2~3배)</td>
-                  <td className="p-4 text-center">저렴함</td>
+                  <td className="p-4 font-semibold">선도유지</td>
+                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">상 (Excellent)</td>
+                  <td className="p-4 text-center">상</td>
+                  <td className="p-4 text-center">상</td>
+                  <td className="p-4 text-center">하</td>
+                  <td className="p-4 text-center">하</td>
                 </tr>
                 <tr className="border-b border-gray-100">
-                  <td className="p-4 font-semibold">물성 (강도)</td>
-                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">우수 (기존과 동일)</td>
-                  <td className="p-4 text-center">약함 (잘 찢어짐)</td>
-                  <td className="p-4 text-center">우수</td>
+                  <td className="p-4 font-semibold">생분해</td>
+                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">가능 (상온 토양)</td>
+                  <td className="p-4 text-center">불가</td>
+                  <td className="p-4 text-center">가능</td>
+                  <td className="p-4 text-center">가능 (고온)</td>
+                  <td className="p-4 text-center">불가</td>
                 </tr>
                 <tr className="border-b border-gray-100">
-                  <td className="p-4 font-semibold">분해 조건</td>
-                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">상온 토양 (일반 환경)</td>
-                  <td className="p-4 text-center">고온 (58℃ 이상) 퇴비화 시설</td>
-                  <td className="p-4 text-center">빛, 열 (자연 분해 안됨)</td>
+                  <td className="p-4 font-semibold">항균/항곰팡이</td>
+                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">99.9%</td>
+                  <td className="p-4 text-center">99.9%</td>
+                  <td className="p-4 text-center">99.9%</td>
+                  <td className="p-4 text-center">없음</td>
+                  <td className="p-4 text-center">없음</td>
                 </tr>
                 <tr className="border-b border-gray-100">
                   <td className="p-4 font-semibold">미세 플라스틱</td>
-                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">없음 (완전 분해)</td>
-                  <td className="p-4 text-center">적음</td>
-                  <td className="p-4 text-center">발생 (조각화)</td>
+                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">미발생 (Zero)</td>
+                  <td className="p-4 text-center">발생 가능</td>
+                  <td className="p-4 text-center">발생 가능</td>
+                  <td className="p-4 text-center">발생 가능</td>
+                  <td className="p-4 text-center">발생</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-semibold">재활용</td>
-                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">가능</td>
-                  <td className="p-4 text-center">불가능 (분리 배출 혼란)</td>
-                  <td className="p-4 text-center">가능</td>
+                  <td className="p-4 font-semibold">비용</td>
+                  <td className="p-4 text-center bg-green-50/50 font-bold text-green-700">합리적</td>
+                  <td className="p-4 text-center">높음</td>
+                  <td className="p-4 text-center">높음</td>
+                  <td className="p-4 text-center">높음</td>
+                  <td className="p-4 text-center">낮음</td>
                 </tr>
               </tbody>
             </table>

@@ -140,6 +140,48 @@ export default function Technology() {
         </div>
       </Section>
 
+      {/* Freshness Technology Section */}
+      <Section background="default">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">숨쉬는 필름 기술</h2>
+          <p className="text-lg text-[var(--muted-foreground)]">
+            양자역학(Quantum Mechanics) 원리를 적용한 선도유지 솔루션
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div className="space-y-6">
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-[var(--border)]">
+              <h3 className="text-xl font-bold text-[var(--primary)] mb-3">양자역학(Quantum Mechanics)</h3>
+              <p className="text-gray-600 leading-relaxed">
+                전자와 무기 광물질에서 발생하는 파동에너지를 활용하여 세포를 활성화합니다.
+                식품 보관의 골든타임을 연장하는 핵심 기술입니다.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-[var(--border)]">
+              <h3 className="text-xl font-bold text-blue-600 mb-3">숨쉬는 필름(Breathable Film)</h3>
+              <p className="text-gray-600 leading-relaxed">
+                분자 구조상 미세한 기공을 통해 필름 내부의 습기를 조절하고 산소를 공급합니다.
+                과도한 수분 흡수를 방지하여 곰팡이와 시들음을 억제합니다.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-[var(--border)]">
+              <h3 className="text-xl font-bold text-green-600 mb-3">에틸렌 가스 제어</h3>
+              <p className="text-gray-600 leading-relaxed">
+                식물의 노화 호르몬인 에틸렌 가스를 효과적으로 흡착 및 분해하여 과숙을 방지하고 부패를 지연시킵니다.
+              </p>
+            </div>
+          </div>
+          <div className="relative h-[400px] bg-gradient-to-br from-green-50 to-blue-50 rounded-3xl overflow-hidden border border-[var(--border)] flex items-center justify-center">
+            <div className="text-center p-8">
+              <div className="text-6xl mb-6">🧬</div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">Fresh-keeping Technology</h3>
+              <p className="text-gray-500">산소/이산화탄소 농도 조절 + 항균 99.9%</p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       {/* Certifications */}
       <Section background="muted">
         <div className="text-center mb-16">
@@ -287,7 +329,7 @@ export default function Technology() {
               <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">
                 🧪
               </div>
-              <h3 className="text-2xl font-bold mb-4">Ecofade 솔루션 (MIAO 기반 첨가제 기술)</h3>
+              <h3 className="text-2xl font-bold mb-4">Ecofade (에코페이드) 솔루션</h3>
               <p className="text-gray-600">
                 미생물 유도 인공 산화 분해 메커니즘
               </p>

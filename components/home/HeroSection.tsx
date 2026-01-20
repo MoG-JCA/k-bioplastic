@@ -35,12 +35,12 @@ export const HeroSection = () => {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <Link href="/solution/badp">
                             <Button size="lg" className="min-w-[200px] shadow-lg shadow-green-900/20">
-                                생분해 생활솔루션 (유통/리테일)
+                                SingSingFresh (싱싱프레)
                             </Button>
                         </Link>
                         <Link href="/solution/miao">
                             <Button variant="outline" size="lg" className="min-w-[200px] bg-white/50 backdrop-blur-sm">
-                                생분해 플라스틱솔루션 (플라스틱 제조사)
+                                Ecofade (에코페이드)
                             </Button>
                         </Link>
                     </div>

@@ -23,7 +23,7 @@ export default function Footer() {
             </p>
             <div className="text-gray-400 text-sm space-y-1">
               <p>(주)에코바이오</p>
-              <p>경기도 남양주시 다산지금로202 현대테라타워 B동 9층 69호</p>
+              <p>경기도 남양주시 다산지금로202 현대테라타워DIMC B동 9층 69호</p>
               <p className="mt-2 pt-2 border-t border-gray-800 inline-block">
                 4세대 생분해 기술 전문 기업 | 국내 최초 EL 724 토양 생분해 인증
               </p>
@@ -41,12 +41,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/solution/badp" className="text-gray-300 hover:text-[var(--primary)] transition-colors">
-                  생분해 생활솔루션
+                  SingSingFresh (싱싱프레)
                 </Link>
               </li>
               <li>
                 <Link href="/solution/miao" className="text-gray-300 hover:text-[var(--primary)] transition-colors">
-                  생분해 플라스틱솔루션
+                  Ecofade (에코페이드)
                 </Link>
               </li>
               <li>
@@ -72,7 +72,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <span className="mt-1.5">info@ecobio.co.kr</span>
+                <span className="mt-1.5">kyc9153@ecofade.co.kr</span>
               </li>
               <li className="flex items-start group">
                 <div className="bg-white/10 p-2 rounded-lg mr-3 group-hover:bg-[var(--primary)] transition-colors">
@@ -94,7 +94,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
-          <p>&copy; 2024 (주)에코바이오. All rights reserved.</p>
+          <p>&copy; 2026 (주)에코바이오. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="#" className="hover:text-white transition-colors">개인정보처리방침</Link>
             <Link href="#" className="hover:text-white transition-colors">이용약관</Link>

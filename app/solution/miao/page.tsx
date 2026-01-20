@@ -7,7 +7,7 @@ import { FAQSection } from '@/components/FAQSection';
 import { MIAO_ADVANTAGES, MIAO_FAQS } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: '생분해 플라스틱솔루션 (MIAO)',
+  title: 'Ecofade (에코페이드) - 생분해 플라스틱솔루션',
   description: '플라스틱 제조사를 위한 혁신적인 생분해 첨가제 솔루션. 기존 설비 그대로, 최소한의 비용으로 친환경 기업으로 도약하세요.',
 };
 
@@ -36,7 +36,7 @@ export default function MIAO() {
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-              <th className="p-4 text-center bg-blue-600 text-white font-bold border-b-4 border-blue-800">Ecofade 솔루션 (MIAO)</th>
+              <span className="inline-block p-2 px-4 mb-4 text-center bg-blue-600 text-white font-bold border-b-4 border-blue-800 rounded-lg text-lg">Ecofade (에코페이드)</span>
               단 1%의 첨가로<br />
               <span className="text-blue-600">친환경 기업으로 도약하세요</span>
             </h2>
