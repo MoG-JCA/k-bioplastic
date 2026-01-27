@@ -160,7 +160,7 @@ export function ContactForm() {
                                 </div>
                                 <div>
                                     <p className="font-semibold text-gray-900">이메일</p>
-                                    <p className="text-gray-600">info@ecobio.co.kr</p>
+                                    <p className="text-gray-600">info@ecofade.co.kr</p>
                                 </div>
                             </div>
                         </div>
