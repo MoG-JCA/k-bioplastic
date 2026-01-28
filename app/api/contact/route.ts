@@ -63,7 +63,7 @@ export async function POST(request: Request) {
     // Email content
     const mailOptions = {
       from: process.env.SMTP_FROM || '"EcoBio Web" <noreply@ecobio.co.kr>',
-      to: 'info@ecobio.co.kr',
+      to: 'jca@ecofade.co.kr',
       subject: `[(주)에코바이오] 새로운 문의가 접수되었습니다 - ${company} (${name})`,
       html: `
         <h2>새로운 문의가 접수되었습니다.</h2>
