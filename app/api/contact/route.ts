@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     // Create a transporter
     // Note: In a real production environment, these should be environment variables
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      host: process.env.SMTP_HOST || 'localhost',
       port: parseInt(process.env.SMTP_PORT || '587'),
       secure: false, // true for 465, false for other ports
       auth: {
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
 
     // Email content
     const mailOptions = {
-      from: process.env.SMTP_FROM || '"EcoBio Web" <noreply@ecobio.co.kr>',
+      from: process.env.SMTP_FROM || '"EcoBio Web" <noreply@ecofade.co.kr>',
       to: 'jca@ecofade.co.kr',
       subject: `[(주)에코바이오] 새로운 문의가 접수되었습니다 - ${company} (${name})`,
       html: `
