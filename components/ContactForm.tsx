@@ -65,7 +65,17 @@ export function ContactForm() {
                 setIsSubmitted(true);
             } else {
                 const data = await response.json();
-                alert(`문의 전송에 실패했습니다.\n오류 내용: ${data.message || data.error || '알 수 없는 오류가 발생했습니다.'}`);
+                let errorMessage = data.message || data.error || '알 수 없는 오류가 발생했습니다.';
+
+                // Zod validation info handling
+                if (data.details?.fieldErrors) {
+                    const fieldErrors = Object.entries(data.details.fieldErrors)
+                        .map(([key, msgs]) => `• ${key}: ${(msgs as any[]).join(', ')}`)
+                        .join('\n');
+                    errorMessage += `\n\n[상세 오류]\n${fieldErrors}`;
+                }
+
+                alert(`문의 전송에 실패했습니다.\n${errorMessage}`);
             }
         } catch (error) {
             console.error('Error submitting form:', error);
