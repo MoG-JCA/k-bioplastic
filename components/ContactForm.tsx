@@ -64,11 +64,12 @@ export function ContactForm() {
             if (response.ok) {
                 setIsSubmitted(true);
             } else {
-                alert('문의 전송에 실패했습니다. 다시 시도해주세요.');
+                const data = await response.json();
+                alert(`문의 전송에 실패했습니다.\n오류 내용: ${data.message || data.error || '알 수 없는 오류가 발생했습니다.'}`);
             }
         } catch (error) {
             console.error('Error submitting form:', error);
-            alert('오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+            alert('네트워크 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
         }
     };
 
