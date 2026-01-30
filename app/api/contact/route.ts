@@ -52,12 +52,17 @@ export async function POST(request: Request) {
     // Note: In a real production environment, these should be environment variables
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'localhost',
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
+      port: parseInt(process.env.SMTP_PORT || '25'),
+      secure: false,
+      ...(process.env.SMTP_USER && {
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS,
+        }
+      }),
+      tls: {
+        rejectUnauthorized: false
+      }
     });
 
     // Email content
@@ -93,7 +98,7 @@ export async function POST(request: Request) {
 
     // Send email
     // Only try to send if credentials are provided, otherwise just log
-    if (process.env.SMTP_USER && process.env.SMTP_PASS) {
+    if (process.env.SMTP_HOST === 'localhost' || (process.env.SMTP_USER && process.env.SMTP_PASS)) {
       await transporter.sendMail(mailOptions);
       return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
     } else {
