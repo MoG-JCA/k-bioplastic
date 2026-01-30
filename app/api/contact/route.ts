@@ -18,7 +18,7 @@ const contactSchema = z.object({
   name: z.string().min(1, "담당자명을 입력해주세요."),
   email: z.string().email("유효한 이메일 주소를 입력해주세요."),
   phone: z.string().min(1, "연락처를 입력해주세요."),
-  message: z.string().min(10, "문의 내용은 최소 10자 이상 입력해주세요."),
+  message: z.string().min(1, "문의 내용을 입력해주세요."),
 }).passthrough(); // Allow other properties (details)
 
 export async function POST(request: Request) {
