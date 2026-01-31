@@ -36,6 +36,35 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
+  other: {
+    'geo.region': 'KR-41',
+    'geo.placename': 'Namyangju-si',
+    'geo.position': '37.6083;127.1611',
+    'ICBM': '37.6083, 127.1611',
+  },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: '(주)에코바이오',
+  url: 'https://www.ecofade.co.kr',
+  logo: 'https://www.ecofade.co.kr/ecobio_ci.png',
+  description: '4세대 생분해 기술 전문 기업, 미세 플라스틱 없는 순환 경제를 만들어갑니다.',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '다산지금로 202, 현대테라타워DIMC B동 9층 69호',
+    addressLocality: 'Namyangju-si',
+    addressRegion: 'Gyeonggi-do',
+    postalCode: '12255',
+    addressCountry: 'KR',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+82-31-557-9153',
+    contactType: 'customer service',
+    email: 'info@ecofade.co.kr',
+  },
 };
 
 export default function RootLayout({
@@ -51,6 +80,10 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   );
