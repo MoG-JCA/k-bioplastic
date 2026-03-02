@@ -9,7 +9,7 @@ const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
-  transition: { duration: 0.8, ease: 'easeOut' }
+  transition: { duration: 0.8, ease: 'easeOut' as const }
 };
 
 const staggerContainer = {
@@ -31,7 +31,7 @@ export default function Cases() {
       <section className="relative py-24 bg-[var(--primary)] text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="container-width relative z-10 text-center">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -39,7 +39,7 @@ export default function Cases() {
           >
             제품 및 적용사례
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -62,7 +62,7 @@ export default function Cases() {
 
         {/* Product 1: Fresh-keeping Zipper Bag */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-24 max-w-6xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -101,7 +101,7 @@ export default function Cases() {
 
         {/* Product 2: Roll Bag */}
         <div className="grid md:grid-cols-2 gap-12 items-center mb-24 max-w-6xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -123,7 +123,7 @@ export default function Cases() {
               </li>
             </ul>
           </motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -141,7 +141,7 @@ export default function Cases() {
 
         {/* Product 3: Gloves & Scrubber */}
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -188,7 +188,7 @@ export default function Cases() {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="whileInView"

@@ -9,17 +9,17 @@ export default function Technology() {
     initial: { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: false, amount: 0.3 },
-    transition: { 
+    transition: {
       type: "spring",
       stiffness: 100,
       damping: 20,
-      duration: 0.8 
-    }
+      duration: 0.8
+    } as any
   };
 
   const staggerContainer = {
     initial: { opacity: 0 },
-    whileInView: { 
+    whileInView: {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
@@ -31,14 +31,14 @@ export default function Technology() {
 
   const stepVariants = {
     initial: { opacity: 0, x: -20 },
-    whileInView: { 
-      opacity: 1, 
+    whileInView: {
+      opacity: 1,
       x: 0,
       transition: {
         type: "spring",
         stiffness: 100,
         damping: 15
-      }
+      } as any
     }
   };
 
@@ -121,7 +121,7 @@ export default function Technology() {
       {/* Hero Section */}
       <section className="relative py-24 bg-[var(--primary)] text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-        <motion.div 
+        <motion.div
           className="container-width relative z-10 text-center"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -137,7 +137,7 @@ export default function Technology() {
 
       {/* How It Works */}
       <Section background="default">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           {...fadeIn}
         >
@@ -147,7 +147,7 @@ export default function Technology() {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="max-w-5xl mx-auto"
           initial="initial"
           whileInView="whileInView"
@@ -181,24 +181,24 @@ export default function Technology() {
                   desc: '1~3년 후, 플라스틱은 완전히 사라지고 CO₂와 물만 남습니다. 미세 플라스틱이나 독성 물질은 전혀 남지 않습니다.',
                   color: 'bg-orange-600'
                 }
-                              ].map((item, i) => (
-                                <motion.div 
-                                  key={i} 
-                                  className="flex flex-col md:flex-row md:items-start gap-6 group"
-                                  variants={stepVariants}
-                                >
-                                  <div className={`${item.color} text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                                    {item.step}
-                                  </div>
-                                  <div className="pt-2">
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[var(--primary)] transition-colors duration-300">{item.title}</h3>
-                                    <p className="text-gray-700 text-lg leading-relaxed">
-                                      {item.desc}
-                                    </p>
-                                  </div>
-                                </motion.div>
-                              ))}
-              
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  className="flex flex-col md:flex-row md:items-start gap-6 group"
+                  variants={stepVariants}
+                >
+                  <div className={`${item.color} text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    {item.step}
+                  </div>
+                  <div className="pt-2">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[var(--primary)] transition-colors duration-300">{item.title}</h3>
+                    <p className="text-gray-700 text-lg leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+
             </div>
           </div>
         </motion.div>
@@ -206,7 +206,7 @@ export default function Technology() {
 
       {/* Freshness Technology Section */}
       <Section background="default">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           {...fadeIn}
         >
@@ -217,7 +217,7 @@ export default function Technology() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          <motion.div 
+          <motion.div
             className="space-y-6"
             initial="initial"
             whileInView="whileInView"
@@ -241,7 +241,7 @@ export default function Technology() {
                 color: 'text-green-600'
               }
             ].map((feature, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 className="bg-white p-6 rounded-2xl shadow-sm border border-[var(--border)]"
                 variants={fadeIn}
@@ -253,7 +253,7 @@ export default function Technology() {
               </motion.div>
             ))}
           </motion.div>
-          <motion.div 
+          <motion.div
             className="relative h-[400px] bg-gradient-to-br from-green-50 to-blue-50 rounded-3xl overflow-hidden border border-[var(--border)] flex items-center justify-center"
             {...fadeIn}
           >
@@ -268,7 +268,7 @@ export default function Technology() {
 
       {/* Certifications */}
       <Section background="muted">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           {...fadeIn}
         >
@@ -278,7 +278,7 @@ export default function Technology() {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12"
           initial="initial"
           whileInView="whileInView"
@@ -292,12 +292,12 @@ export default function Technology() {
               variants={fadeIn}
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gray-50 rounded-bl-full -mr-16 -mt-16 group-hover:bg-green-50 transition-colors duration-500"></div>
-              
+
               {cert.image && (
                 <div className="w-32 h-32 relative flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-inner border border-gray-100 p-3 z-10 flex items-center justify-center">
-                  <Image 
-                    src={cert.image} 
-                    alt={cert.name} 
+                  <Image
+                    src={cert.image}
+                    alt={cert.name}
                     width={100}
                     height={100}
                     className="object-contain"
@@ -328,7 +328,7 @@ export default function Technology() {
 
       {/* Technology Comparison */}
       <Section background="default">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           {...fadeIn}
         >
@@ -338,7 +338,7 @@ export default function Technology() {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="max-w-6xl mx-auto overflow-hidden rounded-3xl border border-[var(--border)] shadow-xl relative"
           {...fadeIn}
         >
@@ -392,7 +392,7 @@ export default function Technology() {
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="mt-12 grid md:grid-cols-3 gap-6 max-w-6xl mx-auto"
           initial="initial"
           whileInView="whileInView"
@@ -422,7 +422,7 @@ export default function Technology() {
 
       {/* Safety & Environment */}
       <Section background="muted">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           {...fadeIn}
         >
@@ -430,7 +430,7 @@ export default function Technology() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <motion.div 
+          <motion.div
             className="bg-white p-10 rounded-3xl shadow-sm border border-[var(--border)]"
             {...fadeIn}
           >
@@ -456,7 +456,7 @@ export default function Technology() {
               ))}
             </ul>
           </motion.div>
-          <motion.div 
+          <motion.div
             className="bg-white p-8 rounded-3xl shadow-sm border border-[var(--border)]"
             {...fadeIn}
           >

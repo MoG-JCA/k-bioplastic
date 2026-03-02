@@ -8,7 +8,7 @@ const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
-  transition: { duration: 0.8, ease: 'easeOut' }
+  transition: { duration: 0.8, ease: 'easeOut' as const }
 };
 
 const staggerContainer = {
@@ -37,7 +37,7 @@ export default function About() {
       <section className="relative py-24 bg-[var(--primary)] text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="container-width relative z-10 text-center">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -45,7 +45,7 @@ export default function About() {
           >
             회사소개
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -95,10 +95,10 @@ export default function About() {
         <div className="max-w-4xl mx-auto relative px-4">
           {/* Timeline Line */}
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-green-100 -translate-x-1/2 hidden md:block"></div>
-          
+
           <div className="space-y-12 relative">
             {historyData.map((item, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -133,15 +133,15 @@ export default function About() {
       <Section background="default">
         <motion.div {...fadeInUp} className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center text-[var(--primary)]">Company Profile</h2>
-          
+
           {/* Desktop Table View */}
           <div className="hidden md:block bg-white rounded-2xl shadow-sm border border-[var(--border)] overflow-hidden">
             {[
               { label: '회사명', value: '(주)에코바이오' },
               { label: '설립일', value: '2024년 01월 10일' },
               { label: '사업부문', value: '생분해 필름제조 및 생분해 플라스틱 압축 필름' },
-              { 
-                label: '주요상품', 
+              {
+                label: '주요상품',
                 value: (
                   <div className="space-y-2">
                     <p>• 생분해 선도유지 필름/포장재/용기</p>
@@ -166,9 +166,9 @@ export default function About() {
               { label: '회사명', value: '(주)에코바이오' },
               { label: '설립일', value: '2024년 01월 10일' },
               { label: '사업부문', value: '생분해 필름제조 및 생분해 플라스틱 압축 필름' },
-              { 
-                label: '주요상품', 
-                value: '생분해 선도유지 필름, 지퍼백, 롤백, 종량제봉투, 농업용 필름, 생분해 첨가제 등' 
+              {
+                label: '주요상품',
+                value: '생분해 선도유지 필름, 지퍼백, 롤백, 종량제봉투, 농업용 필름, 생분해 첨가제 등'
               }
             ].map((row, i) => (
               <div key={i} className="p-5 bg-white rounded-2xl border border-gray-100 shadow-sm">
@@ -189,7 +189,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="whileInView"
@@ -253,7 +253,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="whileInView"
@@ -288,7 +288,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="whileInView"
@@ -336,7 +336,7 @@ export default function About() {
         </motion.div>
 
         {/* Our Solution */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -352,7 +352,7 @@ export default function About() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
           <div className="relative z-10">
             <div className="text-center mb-12">
-              <motion.div 
+              <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
@@ -376,8 +376,8 @@ export default function About() {
                 '원가 부담 최소화',
                 '100% 재활용 가능'
               ].map((item, i) => (
-                <motion.div 
-                  key={i} 
+                <motion.div
+                  key={i}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -399,7 +399,7 @@ export default function About() {
           <h2 className="text-3xl md:text-4xl font-bold mb-6">비전 & 미션</h2>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="whileInView"
