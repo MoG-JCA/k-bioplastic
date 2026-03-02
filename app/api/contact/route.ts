@@ -11,15 +11,40 @@ const rateLimit = new LRUCache<string, number>({
 
 const RATE_LIMIT_MAX = 5; // 5 requests per hour per IP
 
-// Validation Schema
-const contactSchema = z.object({
-  inquiryType: z.string().min(1, "문의 유형을 선택해주세요."),
+// Validation Schemas
+const baseSchema = z.object({
   company: z.string().min(1, "회사명을 입력해주세요."),
   name: z.string().min(1, "담당자명을 입력해주세요."),
   email: z.string().email("유효한 이메일 주소를 입력해주세요."),
-  phone: z.string().min(1, "연락처를 입력해주세요."),
-  message: z.string().min(1, "문의 내용을 입력해주세요."),
-}).passthrough(); // Allow other properties (details)
+  phone: z.string().regex(/^[\d-]{9,15}$/, "유효한 연락처를 입력해주세요."),
+  message: z.string().min(5, "문의 내용을 5자 이상 입력해주세요."),
+  privacy: z.boolean().refine((val) => val === true, {
+    message: "개인정보 수집 및 이용에 동의해야 합니다.",
+  }),
+});
+
+const badpSchema = baseSchema.extend({
+  inquiryType: z.literal("badp"),
+  products: z.array(z.string()).min(1, "최소 하나 이상의 제품을 선택해주세요."),
+  specifications: z.string().optional(),
+  quantity: z.string().optional(),
+});
+
+const miaoSchema = baseSchema.extend({
+  inquiryType: z.literal("miao"),
+  resinType: z.string().min(1, "적용 대상 플라스틱을 선택해주세요."),
+  mainProducts: z.string().min(1, "주요 생산 제품을 입력해주세요."),
+});
+
+const generalSchema = baseSchema.extend({
+  inquiryType: z.literal("general"),
+});
+
+const contactFormSchema = z.discriminatedUnion("inquiryType", [
+  generalSchema,
+  badpSchema,
+  miaoSchema,
+]);
 
 export async function POST(request: Request) {
   try {
@@ -37,7 +62,7 @@ export async function POST(request: Request) {
 
     // 2. Input Validation
     const body = await request.json();
-    const validationResult = contactSchema.safeParse(body);
+    const validationResult = contactFormSchema.safeParse(body);
 
     if (!validationResult.success) {
       return NextResponse.json(
@@ -46,12 +71,11 @@ export async function POST(request: Request) {
       );
     }
 
-    const { inquiryType, company, name, email, phone, message, ...details } = body;
+    const data = validationResult.data;
 
-    // Create a transporter
-    // Note: In a real production environment, these should be environment variables
+    // 3. Create a transporter
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'localhost',
+      host: process.env.SMTP_HOST || '127.0.0.1',
       port: parseInt(process.env.SMTP_PORT || '25'),
       secure: false,
       ...(process.env.SMTP_USER && {
@@ -65,52 +89,60 @@ export async function POST(request: Request) {
       }
     });
 
-    // Email content
+    // 4. Email Content Mapping
+    let typeLabel = "일반 문의";
+    let extraRows = "";
+
+    if (data.inquiryType === 'badp') {
+      typeLabel = "생분해 생활솔루션 (BADP)";
+      extraRows = `
+        <tr><th style="text-align:left; padding:10px; border:1px solid #ddd;">필요 제품</th><td style="padding:10px; border:1px solid #ddd;">${data.products.join(', ')}</td></tr>
+        <tr><th style="text-align:left; padding:10px; border:1px solid #ddd;">필요 규격</th><td style="padding:10px; border:1px solid #ddd;">${data.specifications || '-'}</td></tr>
+        <tr><th style="text-align:left; padding:10px; border:1px solid #ddd;">예상 수량</th><td style="padding:10px; border:1px solid #ddd;">${data.quantity || '-'}</td></tr>
+      `;
+    } else if (data.inquiryType === 'miao') {
+      typeLabel = "생분해 플라스틱솔루션 (MIAO)";
+      extraRows = `
+        <tr><th style="text-align:left; padding:10px; border:1px solid #ddd;">적용 플라스틱</th><td style="padding:10px; border:1px solid #ddd;">${data.resinType}</td></tr>
+        <tr><th style="text-align:left; padding:10px; border:1px solid #ddd;">주요 생산 제품</th><td style="padding:10px; border:1px solid #ddd;">${data.mainProducts}</td></tr>
+      `;
+    }
+
     const mailOptions = {
       from: process.env.SMTP_FROM || '"EcoBio Web" <noreply@ecofade.co.kr>',
-      to: 'jca@ecofade.co.kr',
-      subject: `[(주)에코바이오] 새로운 문의가 접수되었습니다 - ${company} (${name})`,
+      to: process.env.CONTACT_RECEIVER || 'jca@ecofade.co.kr',
+      subject: `[(주)에코바이오] ${typeLabel} 접수 - ${data.company} (${data.name})`,
       html: `
-        <h2>새로운 문의가 접수되었습니다.</h2>
-        <p><strong>문의 유형:</strong> ${inquiryType.toUpperCase()}</p>
-        
-        <h3>기본 정보</h3>
-        <ul>
-          <li><strong>회사명:</strong> ${company}</li>
-          <li><strong>담당자:</strong> ${name}</li>
-          <li><strong>이메일:</strong> ${email}</li>
-          <li><strong>연락처:</strong> ${phone}</li>
-        </ul>
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #059669; border-bottom: 2px solid #059669; padding-bottom: 10px;">새로운 문의가 접수되었습니다.</h2>
+          
+          <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <tr><th style="text-align:left; padding:10px; border:1px solid #ddd; background:#f9fafb; width:140px;">문의 유형</th><td style="padding:10px; border:1px solid #ddd; font-weight:bold;">${typeLabel}</td></tr>
+            <tr><th style="text-align:left; padding:10px; border:1px solid #ddd; background:#f9fafb;">회사명</th><td style="padding:10px; border:1px solid #ddd;">${data.company}</td></tr>
+            <tr><th style="text-align:left; padding:10px; border:1px solid #ddd; background:#f9fafb;">담당자명</th><td style="padding:10px; border:1px solid #ddd;">${data.name}</td></tr>
+            <tr><th style="text-align:left; padding:10px; border:1px solid #ddd; background:#f9fafb;">이메일</th><td style="padding:10px; border:1px solid #ddd;"><a href="mailto:${data.email}">${data.email}</a></td></tr>
+            <tr><th style="text-align:left; padding:10px; border:1px solid #ddd; background:#f9fafb;">연락처</th><td style="padding:10px; border:1px solid #ddd;">${data.phone}</td></tr>
+            ${extraRows}
+          </table>
 
-        <h3>문의 내용</h3>
-        <p style="white-space: pre-wrap;">${message}</p>
+          <div style="margin-top: 30px;">
+            <h3 style="color: #374151; border-left: 4px solid #059669; padding-left: 10px;">문의 내용</h3>
+            <div style="padding: 15px; background: #f3f4f6; border-radius: 8px; white-space: pre-wrap; font-size: 15px; line-height: 1.6;">${data.message}</div>
+          </div>
 
-        ${Object.keys(details).length > 0 ? `
-          <h3>상세 정보</h3>
-          <ul>
-            ${Object.entries(details).map(([key, value]) => `
-              <li><strong>${key}:</strong> ${Array.isArray(value) ? value.join(', ') : value}</li>
-            `).join('')}
-          </ul>
-        ` : ''}
+          <p style="margin-top: 40px; font-size: 12px; color: #6b7280; text-align: center;">본 메일은 (주)에코바이오 공식 홈페이지를 통해 발송되었습니다.</p>
+        </div>
       `,
     };
 
-    // Send email
-    // Only try to send if credentials are provided, otherwise just log
-    if (process.env.SMTP_HOST === 'localhost' || (process.env.SMTP_USER && process.env.SMTP_PASS)) {
-      await transporter.sendMail(mailOptions);
-      return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
-    } else {
-      console.log('SMTP credentials not found. Mocking email send.');
-      console.log('Email content:', mailOptions);
-      // Simulate success for demo purposes if no credentials
-      return NextResponse.json({ message: 'Email sent successfully (Mock)' }, { status: 200 });
-    }
+    // 5. Send email
+    // If SMTP_HOST is provided, we attempt to send. Defaulting to localhost:25 as per design.
+    await transporter.sendMail(mailOptions);
+    return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
 
   } catch (error) {
     console.error('Error sending email:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    return NextResponse.json({ error: errorMessage }, { status: 500 });
+    return NextResponse.json({ error: `Failed to send email: ${errorMessage}` }, { status: 500 });
   }
 }
